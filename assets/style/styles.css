@@ -1,14 +1,107 @@
-.container-main {
-    background: lightblue;
+body {
+    margin: 0;
+    padding: 0;
 }
 
-#welcome-text-container {
+
+/* navigation ////////////////////////////////////////////*/
+
+#nav-main-container {
+    /* border: 2px solid green; */
+    width: 250px;
+    height: 90vh;
+    color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.9);
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    overflow-y: auto;
+    border-radius: 0px 125px 0px 0px;
+}
+
+#image-div {
+    border: 2px solid rgb(216, 178, 7);
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+#name-div {
+    border: 2px solid rgb(0, 197, 0);
+    font-size: 30px;
+    color: #469cff;
+}
+
+ul {
+    border: 2px solid rgb(4, 107, 226);
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+}
+
+.nav-li {
+    color: aliceblue;
+    font-size: 17px;
+    transition: 0.1s;
+    transform: rotateZ(20deg);
+    list-style: none;
+    padding: 15px;
+    border: 2px solid rgb(112, 129, 148);
+    margin: 10px 0px 10px 0px;
+}
+
+.nav-li:hover {
+    background-color: inherit;
+    text-decoration-style: solid;
+    color: #469cff;
+}
+
+#socialLinks {
+    /* border: 2px solid rgb(129, 59, 185); */
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(40px, 40px));
+    width: 250px;
+    height: 10vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#socialLinks i {
+    border: 2px solid rgb(113, 90, 131);
+    color: #469cff;
     font-size: 20px;
-    color: green;
+    transition: 0.1s;
+    padding: 10px;
 }
 
-#time {
-    border: 5px solid red;
-    width: 100px;
-    color: brown;
+#socialLinks i:hover {
+    color: aliceblue;
+    font-size: 25px;
+}
+
+
+/* body-main ////////////////////////////////////////////*/
+
+#main {}
+
+#image-nav {
+    width: 100%;
+}
+
+#p-name {
+    color: aliceblue;
+    font-size: 30px;
+}
+
+
+/* end-footer */
+
+#footer {
+    width: 100%;
 }
