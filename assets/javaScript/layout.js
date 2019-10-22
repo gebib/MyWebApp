@@ -1,7 +1,9 @@
 let screenWidth = 0;
 // start 
 window.onload = function() {
+    this.windowResized('');
     this.navClick('n1', 'p1');
+    this.windowResized(window.innerWidth); // set state on reload
 };
 
 
@@ -11,7 +13,7 @@ window.onload = function() {
 navClick = (navId, pageId) => {
     // scroll
     this.smoothScroll(pageId);
-    if (this.screenWidth <= 1040) {
+    if (this.screenWidth <= 1325) {
         this.showHideMenu();
     }
     //highlight selected nav
@@ -107,11 +109,11 @@ windowResized = (screenWidth) => {
     this.screenWidth = screenWidth;
     let menuDiv = document.getElementById('nav-main-container');
     let burgerTrigger = document.getElementById('burger-menu-trigger');
-    if (screenWidth <= 1040) {
+    if (screenWidth <= 1325) {
         menuDiv.style.marginLeft = "-260px";
         menuDiv.style.transition = "0.4s";
         burgerTrigger.style.display = "block";
-    } else if (screenWidth >= 1040) {
+    } else if (screenWidth >= 1325) {
         menuDiv.style.marginLeft = "0px";
         menuDiv.style.transition = "0.4s";
         burgerTrigger.style.display = "none";

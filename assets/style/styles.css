@@ -4,6 +4,7 @@ body {
     background-color: rgb(121, 186, 255);
     width: 100%;
     min-width: 300px;
+    overflow: hidden;
 }
 
 
@@ -30,8 +31,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     border-radius: 0px 125px 0px 0px;
-    border-top: 3px solid rgb(75, 79, 83);
-    border-right: 3px solid rgb(75, 79, 83);
 }
 
 #image-div {
@@ -125,12 +124,13 @@ a {
 /* main div */
 
 #main-main {
-    width: 50%;
+    width: 800px;
     border: 2px solid rgb(255, 0, 0);
     margin: 0 auto;
 }
 
 #burger-menu-trigger {
+    display: none;
     border-radius: 0px 0px 10px 0px;
     z-index: 2;
     position: fixed;
@@ -203,15 +203,34 @@ a {
 
 #footer {
     background-color: rgba(24, 24, 24, 0.9);
-    width: 50%;
+    width: 100%;
     height: 200px;
     margin: 0 auto;
+}
+
+#fun-div {
+    position: inherit;
+    width: 250px;
+    height: 150px;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    padding-top: 50px;
+}
+
+#smile-div {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background-image: url('../images/smiley.png');
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 
 /* //////////////at smaller displays do the following//////////// */
 
-@media only screen and (max-width: 1040px) {
+@media only screen and (max-width: 1325px) {
     #main-main {
         width: 100%;
         border: 2px solid rgb(255, 0, 0);
@@ -224,8 +243,8 @@ a {
         position: fixed;
         top: 0;
         left: 0;
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
         background-image: url('../images/burgerIcon.svg');
         background-repeat: no-repeat;
         background-size: cover;
@@ -235,6 +254,12 @@ a {
         width: 100%;
         height: 200px;
         margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    body {
+        overflow: auto;
     }
 }
 
