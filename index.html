@@ -14,7 +14,10 @@
 
 </head>
 
-<body>
+<body onresize="windowResized(this.innerWidth)">
+    <!-- burger menu trigger -->
+    <div onclick="showHideMenu()" id="burger-menu-trigger"></div>
+    <!-- //////////////// -->
     <!-- nav -->
     <nav id="nav-main-container">
         <div id="image-div">
@@ -25,23 +28,24 @@
         </div>
         <div id="nav-ul">
             <ul>
-                <a href="#">
-                    <li class="nav-li">Home</li>
+                <a href="#p1" class="scroll">
+                    <li class="nav-li" onclick="navClick(this.id, 'p1')" id="n1">Home</li>
                 </a>
-                <a href="#">
-                    <li class="nav-li">About</li>
+                <a href="#p2" class="scroll">
+                    <li class="nav-li" onclick="navClick(this.id, 'p2')" id="n2">About</li>
                 </a>
-                <a href="#">
-                    <li class="nav-li">Resume</li>
+                <a href="#p3" class="scroll">
+                    <li class="nav-li" onclick="navClick(this.id, 'p3')" id="n3">Portfolio</li>
                 </a>
-                <a href="#">
-                    <li class="nav-li">Projects</li>
+                <a href="#p4" class="scroll">
+                    <li class="nav-li" onclick="navClick(this.id, 'p4')" id="n4">Projects</li>
                 </a>
-                <a href="#">
-                    <li class="nav-li">Contact</li>
+                <a href="#p5" class="scroll">
+                    <li class="nav-li" onclick="navClick(this.id, 'p5')" id="n5">Contact</li>
                 </a>
             </ul>
         </div>
+
         <div id="socialLinks">
             <a href="https://github.com/gebib" rel="noopener noreferrer" target="_blank">
                 <i class="fa fa-github-square"></i>
@@ -59,26 +63,26 @@
     </nav>
 
     <!-- main -->
-    <main id="main">
+    <main id="main-main">
         <!-- home section -->
-        <div id="home">
-
+        <div id="p1">
+            <h1>Home</h1>
         </div>
         <!-- about section -->
-        <div id="about">
-
+        <div id="p2">
+            <h1>About</h1>
         </div>
         <!-- resume section -->
-        <div id="resume">
-
+        <div id="p3">
+            <h1>Portfolio</h1>
         </div>
         <!-- projects section -->
-        <div id="projects">
-
+        <div id="p4">
+            <h1>Projects</h1>
         </div>
         <!-- contact last section -->
-        <div id="contact">
-
+        <div id="p5">
+            <h1>Contact</h1>
         </div>
 
     </main>

@@ -1,83 +1,116 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: rgb(121, 186, 255);
+    width: 100%;
+    min-width: 300px;
 }
+
+
+/* not compatible with majority browsers */
+
+
+/* html {
+    scroll-behavior: smooth;
+} */
 
 
 /* navigation ////////////////////////////////////////////*/
 
 #nav-main-container {
-    /* border: 2px solid green; */
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
     width: 250px;
-    height: 90vh;
-    color: aliceblue;
-    background-color: rgba(0, 0, 0, 0.9);
+    height: 100vh;
+    background-color: rgba(24, 24, 24, 0.9);
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    overflow-y: auto;
     border-radius: 0px 125px 0px 0px;
+    border-top: 3px solid rgb(75, 79, 83);
+    border-right: 3px solid rgb(75, 79, 83);
 }
 
 #image-div {
-    border: 2px solid rgb(216, 178, 7);
+    border: 3px solid rgb(75, 79, 83);
     width: 200px;
     height: 200px;
     overflow: hidden;
     border-radius: 50%;
     margin: 0 auto;
-    margin-top: 25px;
+    margin-top: 20px;
+}
+
+#image-nav {
+    width: 100%;
 }
 
 #name-div {
-    border: 2px solid rgb(0, 197, 0);
+    border: 2px solid rgb(75, 79, 83);
     font-size: 30px;
     color: #469cff;
+    margin: 10px 5px 10px 5px;
+    padding: 5px 0px 5px 0px;
 }
 
 ul {
-    border: 2px solid rgb(4, 107, 226);
+    border: 2px solid rgb(75, 79, 83);
     overflow: hidden;
     padding: 0px;
-    margin: 0px;
+    margin: 5px;
+}
+
+a {
+    text-decoration: none;
 }
 
 .nav-li {
     color: aliceblue;
     font-size: 17px;
-    transition: 0.1s;
     transform: rotateZ(20deg);
     list-style: none;
     padding: 15px;
-    border: 2px solid rgb(112, 129, 148);
+    border: 2px solid rgb(75, 79, 83);
     margin: 10px 0px 10px 0px;
+    transition: 1s;
 }
 
 .nav-li:hover {
-    background-color: inherit;
-    text-decoration-style: solid;
-    color: #469cff;
+    background-color: rgba(0, 0, 0, 0.329) !important;
+    text-decoration-style: solid !important;
+    color: #469cff !important;
+}
+
+#socialLinks-outer-container {
+    background: #ff0000;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    margin-top: auto;
 }
 
 #socialLinks {
-    /* border: 2px solid rgb(129, 59, 185); */
+    bottom: 0;
     display: grid;
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(auto-fit, minmax(40px, 40px));
-    width: 250px;
-    height: 10vh;
-    background-color: rgba(0, 0, 0, 0.9);
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    height: 50px;
+    border: 2px solid rgb(75, 79, 83);
+    /* auto: => keep self to bottom! but parent must = flexBox! */
+    margin: auto 5px 10px 5px;
 }
 
 #socialLinks i {
-    border: 2px solid rgb(113, 90, 131);
+    border: 2px solid rgb(75, 79, 83);
     color: #469cff;
     font-size: 20px;
     transition: 0.1s;
-    padding: 10px;
+    padding: 7px;
 }
 
 #socialLinks i:hover {
@@ -88,20 +121,122 @@ ul {
 
 /* body-main ////////////////////////////////////////////*/
 
-#main {}
 
-#image-nav {
+/* main div */
+
+#main-main {
+    width: 50%;
+    border: 2px solid rgb(255, 0, 0);
+    margin: 0 auto;
+}
+
+#burger-menu-trigger {
+    border-radius: 0px 0px 10px 0px;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background-image: url('../images/burgerIcon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* home */
+
+#p1 {
+    background-color: antiquewhite;
     width: 100%;
+    height: 100vh;
+    border: 2px solid beige;
+    margin: 0 auto;
 }
 
-#p-name {
-    color: aliceblue;
-    font-size: 30px;
+
+/* about */
+
+#p2 {
+    background-color: rgb(196, 141, 70);
+    width: 100%;
+    height: 100vh;
+    border: 2px solid beige;
+    margin: 0 auto;
 }
 
 
-/* end-footer */
+/* portfolio */
+
+#p3 {
+    background-color: rgb(40, 103, 238);
+    width: 100%;
+    height: 100vh;
+    border: 2px solid beige;
+    margin: 0 auto;
+}
+
+
+/* projects */
+
+#p4 {
+    background-color: rgb(255, 75, 20);
+    width: 100%;
+    height: 100vh;
+    border: 2px solid beige;
+    margin: 0 auto;
+}
+
+
+/* contact */
+
+#p5 {
+    background-color: rgb(101, 255, 70);
+    width: 100%;
+    height: 100vh;
+    border: 2px solid beige;
+    margin: 0 auto;
+}
+
+
+/* footer */
 
 #footer {
-    width: 100%;
+    background-color: rgba(24, 24, 24, 0.9);
+    width: 50%;
+    height: 200px;
+    margin: 0 auto;
 }
+
+
+/* //////////////at smaller displays do the following//////////// */
+
+@media only screen and (max-width: 1040px) {
+    #main-main {
+        width: 100%;
+        border: 2px solid rgb(255, 0, 0);
+        margin: 0 auto;
+    }
+    #burger-menu-trigger {
+        border-radius: 0px 0px 10px 0px;
+        background-color: rgba(0, 0, 0, 0.329);
+        z-index: 2;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 40px;
+        height: 40px;
+        background-image: url('../images/burgerIcon.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #footer {
+        background-color: rgba(24, 24, 24, 0.9);
+        width: 100%;
+        height: 200px;
+        margin: 0 auto;
+    }
+}
+
+
+/* ///////////////////////////////////////// */
