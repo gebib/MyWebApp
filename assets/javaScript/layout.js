@@ -1,9 +1,10 @@
-let screenWidth = 0;
+var screenWidth = 0;
+var menuIsShowing = null;
 // start 
 window.onload = function() {
-    this.windowResized('');
     this.navClick('n1', 'p1');
     this.windowResized(window.innerWidth); // set state on reload
+    // binary clock
 };
 
 
@@ -13,8 +14,11 @@ window.onload = function() {
 navClick = (navId, pageId) => {
     // scroll
     this.smoothScroll(pageId);
-    if (this.screenWidth <= 1325) {
+    if (this.screenWidth <= 1077) {
         this.showHideMenu();
+        this.menuIsShowing = false;
+    } else {
+        this.menuIsShowing = true;
     }
     //highlight selected nav
     for (let i = 1; i < 6; i++) {
@@ -28,6 +32,47 @@ navClick = (navId, pageId) => {
             elem.style.color = "aliceblue";
         }
     }
+}
+
+//update active nav indication, depending on if the page is scrolled to
+updateNavLinkBg = (navId) => {
+    for (let i = 1; i < 6; i++) {
+        let tempNavId = "n" + i;
+        let elem = document.getElementById(tempNavId);
+        if (tempNavId === navId) {
+            elem.style.backgroundColor = "black";
+            elem.style.color = "#469cff";
+        } else {
+            elem.style.backgroundColor = "inherit";
+            elem.style.color = "aliceblue";
+        }
+    }
+}
+
+// check if page is visible onScrolling body
+windowScrolling = () => {
+    let homeDistanceY = document.getElementById('p1').getBoundingClientRect().top;
+    let aboutDistanceY = document.getElementById('p2').getBoundingClientRect().top;
+    let portfolioDistanceY = document.getElementById('p3').getBoundingClientRect().top;
+    let projectsDistanceY = document.getElementById('p4').getBoundingClientRect().top;
+    let contactDistanceY = document.getElementById('p5').getBoundingClientRect().top;
+
+    if (Math.abs(homeDistanceY) <= (window.innerHeight / 2)) {
+        this.updateNavLinkBg("n1");
+    }
+    if (Math.abs(aboutDistanceY) <= (window.innerHeight / 2)) {
+        this.updateNavLinkBg('n2');
+    }
+    if (Math.abs(portfolioDistanceY) <= (window.innerHeight / 2)) {
+        this.updateNavLinkBg('n3');
+    }
+    if (Math.abs(projectsDistanceY) <= (window.innerHeight / 2)) {
+        this.updateNavLinkBg('n4');
+    }
+    if (Math.abs(contactDistanceY) <= (window.innerHeight / 2)) {
+        this.updateNavLinkBg('n5');
+    }
+
 }
 
 //smooth scrolling/////using window.scrollTo, compatible with most browsers.
@@ -96,11 +141,20 @@ showHideMenu = () => {
         menuDiv.style.marginLeft = "0px";
         menuDiv.style.transition = "0.4s";
         burgerTrigger.style.display = "none";
+        this.menuIsShowing = true;
     } else if (menuDiv.style.marginLeft === "0px") {
         menuDiv.style.marginLeft = "-260px";
         menuDiv.style.transition = "0.4s";
         burgerTrigger.style.display = "block";
+        this.menuIsShowing = false;
 
+    }
+}
+
+// hide menu if page is clicked and if menu should be hidden
+hideMenuIfClickOnBody = () => {
+    if ((this.innerWidth < 1077) && (this.menuIsShowing)) {
+        this.showHideMenu();
     }
 }
 
@@ -109,13 +163,15 @@ windowResized = (screenWidth) => {
     this.screenWidth = screenWidth;
     let menuDiv = document.getElementById('nav-main-container');
     let burgerTrigger = document.getElementById('burger-menu-trigger');
-    if (screenWidth <= 1325) {
+    if (screenWidth <= 1077) {
         menuDiv.style.marginLeft = "-260px";
         menuDiv.style.transition = "0.4s";
         burgerTrigger.style.display = "block";
-    } else if (screenWidth >= 1325) {
+        this.menuIsShowing = false;
+    } else if (screenWidth >= 1077) {
         menuDiv.style.marginLeft = "0px";
         menuDiv.style.transition = "0.4s";
         burgerTrigger.style.display = "none";
+        this.menuIsShowing = true;
     }
 }

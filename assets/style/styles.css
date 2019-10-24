@@ -1,10 +1,14 @@
 body {
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: rgb(121, 186, 255);
-    width: 100%;
+    background-color: aliceblue;
     min-width: 300px;
-    overflow: hidden;
+    /* overflow-x: hidden; */
+    background-image: url('../images/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 
@@ -23,18 +27,17 @@ body {
     z-index: 1;
     top: 0;
     overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     width: 250px;
     height: 100vh;
-    background-color: rgba(24, 24, 24, 0.9);
-    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(24, 24, 24, 0.8);
     text-align: center;
-    border-radius: 0px 125px 0px 0px;
 }
 
 #image-div {
-    border: 3px solid rgb(75, 79, 83);
+    border: 1px solid rgb(75, 79, 83);
     width: 200px;
     height: 200px;
     overflow: hidden;
@@ -48,7 +51,7 @@ body {
 }
 
 #name-div {
-    border: 2px solid rgb(75, 79, 83);
+    border: 1px solid rgb(75, 79, 83);
     font-size: 30px;
     color: #469cff;
     margin: 10px 5px 10px 5px;
@@ -56,7 +59,7 @@ body {
 }
 
 ul {
-    border: 2px solid rgb(75, 79, 83);
+    border: 1px solid rgb(75, 79, 83);
     overflow: hidden;
     padding: 0px;
     margin: 5px;
@@ -72,7 +75,7 @@ a {
     transform: rotateZ(20deg);
     list-style: none;
     padding: 15px;
-    border: 2px solid rgb(75, 79, 83);
+    border: 1px solid rgb(75, 79, 83);
     margin: 10px 0px 10px 0px;
     transition: 1s;
 }
@@ -99,13 +102,13 @@ a {
     align-items: center;
     grid-template-columns: repeat(auto-fit, minmax(40px, 40px));
     height: 50px;
-    border: 2px solid rgb(75, 79, 83);
+    border: 1px solid rgb(75, 79, 83);
     /* auto: => keep self to bottom! but parent must = flexBox! */
     margin: auto 5px 10px 5px;
 }
 
 #socialLinks i {
-    border: 2px solid rgb(75, 79, 83);
+    border: 1px solid rgb(75, 79, 83);
     color: #469cff;
     font-size: 20px;
     transition: 0.1s;
@@ -124,34 +127,84 @@ a {
 /* main div */
 
 #main-main {
-    width: 800px;
-    border: 2px solid rgb(255, 0, 0);
-    margin: 0 auto;
+    margin-left: 250px;
 }
 
 #burger-menu-trigger {
     display: none;
-    border-radius: 0px 0px 10px 0px;
-    z-index: 2;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 40px;
-    height: 40px;
-    background-image: url('../images/burgerIcon.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 
 /* home */
 
 #p1 {
-    background-color: antiquewhite;
     width: 100%;
     height: 100vh;
-    border: 2px solid beige;
     margin: 0 auto;
+    /* background: #ffee00; */
+}
+
+#home-overlay {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(24, 24, 24, 0.562);
+    margin: 0 auto;
+}
+
+#banner-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* ///////// */
+    align-self: center;
+    width: 800px;
+    height: 625px;
+    background-color: rgba(0, 0, 0, 0.733);
+    border-radius: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #469cff;
+}
+
+#hi {
+    margin: 3px;
+    padding: 0;
+    font-size: 30px;
+    border: 1px solid rgb(75, 79, 83);
+    padding: 0px;
+    width: 300px;
+}
+
+#gebi {
+    margin: 3px;
+    padding: 0;
+    font-size: 120px;
+    /* font-weight: 50; */
+    border: 1px solid rgb(75, 79, 83);
+    width: 300px;
+    background: -webkit-linear-gradient(#469cff, pink);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#beshir {
+    margin: 3px;
+    padding: 0;
+    font-size: 50px;
+    border: 1px solid rgb(75, 79, 83);
+    width: 300px;
+}
+
+#level {
+    margin: 3px;
+    padding: 0;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid rgb(75, 79, 83);
+    width: 300px;
 }
 
 
@@ -159,10 +212,10 @@ a {
 
 #p2 {
     background-color: rgb(196, 141, 70);
-    width: 100%;
-    height: 100vh;
-    border: 2px solid beige;
+    width: 800px;
+    height: 20vh;
     margin: 0 auto;
+    border: 1px solid beige;
 }
 
 
@@ -170,10 +223,10 @@ a {
 
 #p3 {
     background-color: rgb(40, 103, 238);
-    width: 100%;
-    height: 100vh;
-    border: 2px solid beige;
+    width: 800px;
+    height: 20vh;
     margin: 0 auto;
+    border: 1px solid beige;
 }
 
 
@@ -181,9 +234,9 @@ a {
 
 #p4 {
     background-color: rgb(255, 75, 20);
-    width: 100%;
-    height: 100vh;
-    border: 2px solid beige;
+    width: 800px;
+    height: 20vh;
+    border: 1px solid beige;
     margin: 0 auto;
 }
 
@@ -192,68 +245,66 @@ a {
 
 #p5 {
     background-color: rgb(101, 255, 70);
-    width: 100%;
-    height: 100vh;
-    border: 2px solid beige;
+    width: 800px;
+    height: 20vh;
+    border: 1px solid beige;
     margin: 0 auto;
 }
 
 
 /* footer */
 
-#footer {
-    background-color: rgba(24, 24, 24, 0.9);
-    width: 100%;
+#footer-body-level {
     height: 200px;
-    margin: 0 auto;
+    background-color: rgba(24, 24, 24, 0.8);
+    margin-left: 250px;
 }
 
-#fun-div {
-    position: inherit;
-    width: 250px;
-    height: 150px;
-    left: 0;
-    top: 0;
-    z-index: 0;
-    padding-top: 50px;
-}
-
-#smile-div {
-    width: 80px;
-    height: 80px;
+#footer-content-container {
+    width: 800px;
+    height: 100%;
     margin: 0 auto;
-    background-image: url('../images/smiley.png');
-    background-repeat: no-repeat;
-    background-size: contain;
+    color: aliceblue;
+    background-color: gray;
 }
 
 
 /* //////////////at smaller displays do the following//////////// */
 
-@media only screen and (max-width: 1325px) {
+@media only screen and (max-width: 1077px) {
     #main-main {
         width: 100%;
-        border: 2px solid rgb(255, 0, 0);
         margin: 0 auto;
     }
     #burger-menu-trigger {
-        border-radius: 0px 0px 10px 0px;
-        background-color: rgba(0, 0, 0, 0.329);
-        z-index: 2;
+        z-index: 100;
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 30px;
+        width: 40px;
         height: 30px;
-        background-image: url('../images/burgerIcon.svg');
+        background-image: url('../images/menu-button.svg');
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
+        margin-left: 20px;
+        margin-top: 20px;
     }
-    #footer {
-        background-color: rgba(24, 24, 24, 0.9);
+    #footer-body-level {
+        background-color: rgba(24, 24, 24, 0.8);
         width: 100%;
         height: 200px;
         margin: 0 auto;
+    }
+    #footer-content-container {
+        border: 1px solid #ffee00;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+    #p1,
+    #p2,
+    #p3,
+    #p4,
+    #p5 {
+        width: 100%;
     }
 }
 

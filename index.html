@@ -14,7 +14,7 @@
 
 </head>
 
-<body onresize="windowResized(this.innerWidth)">
+<body onresize="windowResized(this.innerWidth)" onscroll="windowScrolling()">
     <!-- burger menu trigger -->
     <div onclick="showHideMenu()" id="burger-menu-trigger"></div>
     <!-- //////////////// -->
@@ -63,10 +63,19 @@
     </nav>
 
     <!-- main -->
-    <main id="main-main">
+    <main id="main-main" onclick="hideMenuIfClickOnBody()">
         <!-- home section -->
         <div id="p1">
-            <h1>Home</h1>
+            <div id="home-overlay">
+                <div id="banner-div">
+
+                    <p id="hi">HI, I'M</p>
+                    <p id="gebi">GEBI</p>
+                    <p id="beshir">BESHIR</p>
+                    <p id="level">INTERMEDIATE SOFTWARE DEVELOPER</p>
+                </div>
+            </div>
+        </div>
         </div>
         <!-- about section -->
         <div id="p2">
@@ -88,11 +97,9 @@
     </main>
 
     <!-- footer -->
-    <footer id="footer">
-        <div id="fun-div">
-            <div id="smile-div">
-            </div>
-        </div>
+    <footer id="footer-body-level">
+        <div id="footer-content-container">
+            content container</div>
     </footer>
 </body>
 
