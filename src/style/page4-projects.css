@@ -1,0 +1,12 @@
+#p4-content-container {
+    background: rgba(255, 51, 0, 0.541);
+}
+
+#project-1,
+#project-2,
+#project-3,
+#project-4 {
+    width: 400px;
+    height: 300px;
+    border: 2px solid rgb(255, 0, 0);
+}

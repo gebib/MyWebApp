@@ -6,22 +6,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <link rel="stylesheet" href="./assets/style/styles.css">
-    <script src="./assets/javaScript/layout.js"></script>
+    <link rel="stylesheet" href="./src/style/global.css">
+    <link rel="stylesheet" href="./src/style/drawerMenu.css">
+    <link rel="stylesheet" href="./src/style/page1-splash.css">
+    <link rel="stylesheet" href="./src/style/page2-about.css">
+    <link rel="stylesheet" href="./src/style/page3-portfolio.css">
+    <link rel="stylesheet" href="./src/style/page4-projects.css">
+    <link rel="stylesheet" href="./src/style/page5-contacts.css">
+    <link rel="stylesheet" href="./src/style/footer.css">
+    <link rel="stylesheet" href="./src/style/mediaQueries.css">
+    <script src="./src/javaScript/script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/png" href="./assets/images/tab_icon.png">
-
 </head>
 
 <body onresize="windowResized(this.innerWidth)" onscroll="windowScrolling()">
+    <!-- overlayDIV -->
+    <div id="overlay-div" onclick="hideMenuIfClickOnBody()"></div>
     <!-- burger menu trigger -->
-    <div onclick="showHideMenu()" id="burger-menu-trigger"></div>
+    <div onclick="showHideMenu()" id="burger-menu-button-div"></div>
     <!-- //////////////// -->
     <!-- nav -->
     <nav id="nav-main-container">
         <div id="image-div">
-            <img id="image-nav" src="./assets/images/me.png" alt="me">
+            <img id="image-nav" src="./assets/images/meGS.png" alt="me">
         </div>
         <div id="name-div">
             Gebi Beshir
@@ -62,38 +70,101 @@
         </div>
     </nav>
 
+    <div id="stick-cv-btn-div">
+        <a id="cv-a" href="#">
+            <a href="#" id="downloadButton-sticky">Download CV</a>
+        </a>
+    </div>
+
     <!-- main -->
-    <main id="main-main" onclick="hideMenuIfClickOnBody()">
+    <main id="main-main">
         <!-- home section -->
         <div id="p1">
-            <div id="home-overlay">
+            <div class="home-overlay">
                 <div id="banner-div">
-
-                    <p id="hi">HI, I'M</p>
+                    <p id="hi">HELLO, I AM</p>
                     <p id="gebi">GEBI</p>
-                    <p id="beshir">BESHIR</p>
-                    <p id="level">INTERMEDIATE SOFTWARE DEVELOPER</p>
+                    <p id="beshir">B E S H I R</p>
+                    <p id="skill">INTERMEDIATE SOFTWARE DEVELOPER</p>
+                    <a id="cv-a" href="#">
+                        <a href="#" id="downloadButton">Download CV</a>
+                    </a>
                 </div>
             </div>
         </div>
         </div>
         <!-- about section -->
         <div id="p2">
-            <h1>About</h1>
+            <div class="main-page-container">
+                <div class="main-inner-middle-container">
+                    <div id="p2-content-container">
+                        <div id="my-picture-div">
+                            <img id="image-about" src="./assets/images/meCL.png" alt="me">
+                        </div>
+                        <div id="about-text-div">
+                            <div id="about-tex-inner-div">
+                                <h1 id="about-me-header-p">ABOUT ME</h1>
+                                <p id="about-me-text-p">
+                                    <p>My name is Gebi Beshir. I’m an intermediate software developer, graduated with a bachelor's degree, as a software engineer from OsloMet, and have been learning and working as a freelancer since then.</p>
+
+                                    <p>I have a genuine interest in computers, technology and electronics, and therefore also studied “Dataelektronikk” at Årstad VGS, previous to my study at OsloMet. And this helped me to better understand electronics and
+                                        computers in general, and how they operate, which have also been a great baseline for me, in order to be a better programmer.
+                                    </p>
+
+                                    <p> While working as a freelancer, I have developed web applications using AngularJS. And tried out many personal and school related learning projects also with ReactJS, .NET, Java, and as well as developing website without
+                                        JavaScript framework, such as this website, which is developed entirely with HTML, CSS and JavaScript.
+                                    </p>
+
+                                    <p>I’ve yet to specialize in any specific area within software development, or as a fullstack developer, which is also what I’m looking forward to, but I'm currently able to work with an in depth software development for
+                                        desktop and mobile software using Java or .NET, and JavaScript frameworks.
+                                    </p>
+
+                                </p>
+                            </div>
+                        </div>
+                        <div id="my-skill-level-div">skill levels
+                            <div class="skill-chart-container-div" id="html">html</div>
+                            <div class="skill-chart-container-div" id="css">css</div>
+                            <div class="skill-chart-container-div" id="JavaScript">JavaScript</div>
+                            <div class="skill-chart-container-div" id="AngularJs">AngularJs</div>
+                            <div class="skill-chart-container-div" id="ReactJs">ReactJs</div>
+                            <div class="skill-chart-container-div" id="Java">Java</div>
+                            <div class="skill-chart-container-div" id="dotNet">dotNet</div>
+                            <div class="skill-chart-container-div" id="cpp">cpp</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- resume section -->
+        <!-- portfolio section -->
         <div id="p3">
-            <h1>Portfolio</h1>
+            <div class="main-page-container">
+                <div class="main-inner-middle-container">
+                    <div id="p3-content-container"> divs with content..</div>
+                </div>
+            </div>
         </div>
         <!-- projects section -->
         <div id="p4">
-            <h1>Projects</h1>
+            <div class="main-page-container">
+                <div class="main-inner-middle-container">
+                    <div id="p4-content-container">
+                        <div id="project-1">ihoo</div>
+                        <div id="project-1">osloskredder</div>
+                        <div id="project-3">my page</div>
+                        <div id="project-4">android</div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- contact last section -->
         <div id="p5">
-            <h1>Contact</h1>
+            <div class="main-page-container">
+                <div class="main-inner-middle-container">
+                    <div id="p5-content-container">dont know how may div here too</div>
+                </div>
+            </div>
         </div>
-
     </main>
 
     <!-- footer -->

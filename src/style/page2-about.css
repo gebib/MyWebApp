@@ -1,0 +1,36 @@
+ #p2-content-container {
+     /* background: rgba(89, 253, 89, 0.541); */
+     display: grid;
+     gap: 1px;
+ }
+ 
+ #my-picture-div {
+     background-color: #303741;
+     /* //////flex align vertical && horizontally */
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     /* ///////////// */
+ }
+ 
+ #image-about {
+     width: 350px;
+     background-color: rgb(203, 231, 255);
+ }
+ 
+ #about-text-div {
+     /* border: 2px solid rgb(0, 114, 129); */
+     /* //////flex align vertical && horizontally */
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     /* ///////////// */
+     background-color: #303741;
+ }
+ 
+ #about-tex-inner-div {
+     /* border: 2px solid rgb(255, 0, 0); */
+     width: 100%;
+     height: 100%;
+     padding: 0px 10px 10px 20px;
+ }

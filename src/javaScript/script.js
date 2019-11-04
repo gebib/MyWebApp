@@ -14,7 +14,7 @@ window.onload = function() {
 navClick = (navId, pageId) => {
     // scroll
     this.smoothScroll(pageId);
-    if (this.screenWidth <= 1077) {
+    if (this.screenWidth <= 730) {
         this.showHideMenu();
         this.menuIsShowing = false;
     } else {
@@ -25,11 +25,13 @@ navClick = (navId, pageId) => {
         let tempNavId = "n" + i;
         let elem = document.getElementById(tempNavId);
         if (tempNavId === navId) {
-            elem.style.backgroundColor = "black";
-            elem.style.color = "#469cff";
+            elem.style.backgroundColor = "aliceblue";
+            elem.style.color = "black";
+            elem.style.fontWeight = "bold";
         } else {
             elem.style.backgroundColor = "inherit";
             elem.style.color = "aliceblue";
+            elem.style.fontWeight = "bold";
         }
     }
 }
@@ -40,11 +42,13 @@ updateNavLinkBg = (navId) => {
         let tempNavId = "n" + i;
         let elem = document.getElementById(tempNavId);
         if (tempNavId === navId) {
-            elem.style.backgroundColor = "black";
-            elem.style.color = "#469cff";
+            elem.style.backgroundColor = "aliceblue";
+            elem.style.color = "black";
+            elem.style.fontWeight = "bold";
         } else {
             elem.style.backgroundColor = "inherit";
             elem.style.color = "aliceblue";
+            elem.style.fontWeight = "bold";
         }
     }
 }
@@ -56,6 +60,15 @@ windowScrolling = () => {
     let portfolioDistanceY = document.getElementById('p3').getBoundingClientRect().top;
     let projectsDistanceY = document.getElementById('p4').getBoundingClientRect().top;
     let contactDistanceY = document.getElementById('p5').getBoundingClientRect().top;
+
+    let stickyCvDownloadButton = document.getElementById('stick-cv-btn-div');
+    stickyCvDownloadButton.style.transition = "2s"
+
+    if (Math.abs(homeDistanceY) <= 602) {
+        stickyCvDownloadButton.style.display = "none";
+    } else {
+        stickyCvDownloadButton.style.display = "block";
+    }
 
     if (Math.abs(homeDistanceY) <= (window.innerHeight / 2)) {
         this.updateNavLinkBg("n1");
@@ -136,39 +149,54 @@ smoothScroll = (eID) => {
 // show hidden menu
 showHideMenu = () => {
     let menuDiv = document.getElementById('nav-main-container');
-    let burgerTrigger = document.getElementById('burger-menu-trigger');
+    let burgerTrigger = document.getElementById('burger-menu-button-div');
     if (menuDiv.style.marginLeft === "-260px") {
         menuDiv.style.marginLeft = "0px";
         menuDiv.style.transition = "0.4s";
         burgerTrigger.style.display = "none";
         this.menuIsShowing = true;
+        this.darkenOnDrawerShouldSHow(true);
+
     } else if (menuDiv.style.marginLeft === "0px") {
         menuDiv.style.marginLeft = "-260px";
         menuDiv.style.transition = "0.4s";
         burgerTrigger.style.display = "block";
         this.menuIsShowing = false;
-
+        this.darkenOnDrawerShouldSHow(false);
     }
 }
 
 // hide menu if page is clicked and if menu should be hidden
 hideMenuIfClickOnBody = () => {
-    if ((this.innerWidth < 1077) && (this.menuIsShowing)) {
+    if ((this.innerWidth < 730) && (this.menuIsShowing)) {
         this.showHideMenu();
     }
 }
+
+//darken view on menu drawer showing
+darkenOnDrawerShouldSHow = (shouldDarken) => {
+    let overlay = document.getElementById('overlay-div');
+    if (shouldDarken) {
+        overlay.style.display = "block";
+    } else {
+        overlay.style.display = "none";
+    }
+}
+
 
 // detect resolution change
 windowResized = (screenWidth) => {
     this.screenWidth = screenWidth;
     let menuDiv = document.getElementById('nav-main-container');
-    let burgerTrigger = document.getElementById('burger-menu-trigger');
-    if (screenWidth <= 1077) {
+    let burgerTrigger = document.getElementById('burger-menu-button-div');
+    // let mainMiddleContainer = document.getElementsByClassName('body');
+    if (screenWidth <= 730) {
         menuDiv.style.marginLeft = "-260px";
         menuDiv.style.transition = "0.4s";
         burgerTrigger.style.display = "block";
         this.menuIsShowing = false;
-    } else if (screenWidth >= 1077) {
+        this.darkenOnDrawerShouldSHow();
+    } else if (screenWidth >= 730) {
         menuDiv.style.marginLeft = "0px";
         menuDiv.style.transition = "0.4s";
         burgerTrigger.style.display = "none";

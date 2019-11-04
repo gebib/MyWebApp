@@ -1,0 +1,20 @@
+#p3-content-container {
+    background: rgba(253, 237, 89, 0.541);
+}
+
+
+/* //skill level pie charts */
+
+#my-skill-level-div {
+    /* span n columns */
+    grid-column-start: span 2;
+    border: 5px solid darkorange;
+}
+
+.skill-chart-container-div {
+    width: 120px;
+    height: 120px;
+    background-color: blanchedalmond;
+    border: 2px rgb(155, 150, 139);
+    margin: 5px;
+}
