@@ -41,8 +41,8 @@ window.onload = function () {
 
 
 // nav links manipulations, do some things when navs are clicked
-// nav ids: n1=home, n2=about, n3=portfolio, n4=projects, n5=contact
-// corresponding page ids: p1, p2, p3, p4, p5, for scrolling to.
+// nav ids: n1=home, n2=about, n3=projects, n3=contact
+// corresponding page ids: p1, p2, p3, p4, for scrolling to.
 navClick = (navId, pageId) => {
     // scroll
     this.smoothScroll(pageId);
@@ -53,7 +53,7 @@ navClick = (navId, pageId) => {
         this.menuIsShowing = true;
     }
     //highlight selected nav
-    for (let i = 1; i < 6; i++) {
+    for (let i = 1; i < 5; i++) {
         let tempNavId = "n" + i;
         let elem = document.getElementById(tempNavId);
         if (tempNavId === navId) {
@@ -70,7 +70,7 @@ navClick = (navId, pageId) => {
 
 //update active nav indication, depending on if the page is scrolled to
 updateNavLinkBg = (navId) => {
-    for (let i = 1; i < 6; i++) {
+    for (let i = 1; i < 5; i++) {
         let tempNavId = "n" + i;
         let elem = document.getElementById(tempNavId);
         if (tempNavId === navId) {
@@ -89,9 +89,8 @@ updateNavLinkBg = (navId) => {
 windowScrolling = () => {
     let homeDistanceY = document.getElementById('p1').getBoundingClientRect().top;
     let aboutDistanceY = document.getElementById('p2').getBoundingClientRect().top;
-    let portfolioDistanceY = document.getElementById('p3').getBoundingClientRect().top;
-    let projectsDistanceY = document.getElementById('p4').getBoundingClientRect().top;
-    let contactDistanceY = document.getElementById('p5').getBoundingClientRect().top;
+    let projectsDistanceY = document.getElementById('p3').getBoundingClientRect().top;
+    let contactDistanceY = document.getElementById('p4').getBoundingClientRect().top;
 
     let stickyCvDownloadButton = document.getElementById('stick-cv-btn-div');
     stickyCvDownloadButton.style.transition = "2s"
@@ -120,14 +119,11 @@ windowScrolling = () => {
     if (Math.abs(aboutDistanceY) <= (window.innerHeight / 2)) {
         this.updateNavLinkBg('n2');
     }
-    if (Math.abs(portfolioDistanceY) <= (window.innerHeight / 2)) {
+    if (Math.abs(projectsDistanceY) <= (window.innerHeight / 2)) {
         this.updateNavLinkBg('n3');
     }
-    if (Math.abs(projectsDistanceY) <= (window.innerHeight / 2)) {
-        this.updateNavLinkBg('n4');
-    }
     if (Math.abs(contactDistanceY) <= (window.innerHeight / 2)) {
-        this.updateNavLinkBg('n5');
+        this.updateNavLinkBg('n4');
     }
 }
 

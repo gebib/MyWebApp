@@ -1,0 +1,27 @@
+#p3-content-container {
+  
+}
+
+#projectsHeader-div {
+  border: 1px solid blue;
+}
+#projectsContent-div {
+  border: 5px solid blueviolet;
+  padding: 5px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 400px);
+  gap: 10px;
+  justify-items: center;
+  justify-content: center;
+
+}
+
+#project-1,
+#project-2,
+#project-3,
+#project-4 {
+  width: 400px;
+  height: 300px;
+  border: 2px solid rgb(255, 0, 0);
+}

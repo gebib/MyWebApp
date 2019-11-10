@@ -1,60 +1,67 @@
 @media only screen and (max-width: 1400px) {
-    #banner-div,
-    .main-inner-middle-container {
-        margin-left: 250px;
-        width: 100%;
-        transition: 0.4s;
-    }
-    #footer-content-container {
-        width: 80%;
-        height: 200px;
-        margin-left: 250px;
-    }
+  #banner-div,
+  .main-inner-middle-container {
+    margin-left: 250px;
+    width: 100%;
+    transition: 0.4s;
+  }
+  #footer-content-container {
+    width: 80%;
+    height: 200px;
+    margin-left: 250px;
+  }
 }
 
 @media only screen and (max-width: 730px) {
-    #main-main {
-        width: 100%;
-        margin: 0 auto;
-    }
-    #burger-menu-button-div {
-        display: block;
-    }
-    #footer-body-level {
-        background-color: rgba(24, 24, 24, 0.8);
-        width: 100%;
-        height: 200px;
-        margin: 0 auto;
-    }
-    #footer-content-container {
-        border: 1px solid #ffee00;
-        width: 100%;
-        height: 100%;
-        margin: 0 auto;
-    }
-    #banner-div,
-    .main-inner-middle-container {
-        width: 100%;
-        margin-left: 0px;
-        transition: 0.4s;
-    }
+  #main-main {
+    width: 100%;
+    margin: 0 auto;
+  }
+  #burger-menu-button-div {
+    display: block;
+  }
+  #footer-body-level {
+    background-color: rgba(24, 24, 24, 0.8);
+    width: 100%;
+    height: 200px;
+    margin: 0 auto;
+  }
+  #footer-content-container {
+    border: 1px solid #ffee00;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+  #banner-div,
+  .main-inner-middle-container {
+    width: 100%;
+    margin-left: 0px;
+    transition: 0.4s;
+  }
 }
 
 @media only screen and (max-width: 500px) {
-    body {
-        overflow: auto;
-    }
+  body {
+    overflow: auto;
+  }
 }
 
 @media only screen and (max-width: 1060px) {
-    #about-text-div,
-    #my-picture-div {
-        grid-column-start: span 2;
-    }
-    #my-picture {
-        grid-column-start: span 2;
-    }
-    #my-picture-div {
-        background-color: rgb(203, 231, 255);
-    }
+  #about-text-div,
+  #my-picture-div {
+    grid-column-start: span 2;
+  }
+  #my-picture {
+    grid-column-start: span 2;
+  }
+  #my-picture-div {
+    background-color: rgb(203, 231, 255);
+  }
+  #my-skill-level-main-div {
+    background-color: #ffee00;
+    grid-template-columns: repeat(auto-fill, 120px);
+  }
+  #projectsContent-div {
+    grid-template-columns: repeat(auto-fill, 400px);
+  }
 }

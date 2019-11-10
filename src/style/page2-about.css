@@ -34,3 +34,192 @@
      height: 100%;
      padding: 0px 10px 10px 20px;
  }
+ /* ///////////My Skills//////////////// */
+ #my-skills-header-div {
+    background-color: #303741;
+    padding: 0px 10px 10px 20px;
+    grid-column-start: span 2;
+  }
+  
+  /* //skill level pie charts */
+  
+  #my-skill-level-main-div {
+    /* span n columns */
+    grid-column-start: span 2;
+    /* ////////this container///////// */
+    display: grid;
+    /* repeat every 120px of width for all the elements in this container */
+    grid-template-columns: repeat(6, 120px);
+    gap: 10px;
+
+    justify-items: center;
+    justify-content: center;
+  }
+  
+  .skill-chart-container-div {
+    /* border: 1px solid blue; */
+    position: relative;
+    text-align: center;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+  }
+  #mySkills-h1 {
+    color: white;
+    text-transform: uppercase;
+  }
+  .percentageLabel {
+    margin-top: 20%;
+    margin-left: 10px;
+    font-size: 30px;
+  }
+  
+  .charts-text-p {
+    position: absolute;
+    color: #0dc757;
+    /* border: 1px solid #4b4f53; */
+    bottom: 15px;
+    right: 0;
+    width: 100%;
+    height: 23px;
+    background-color: rgba(0, 0, 0, 0.26);
+    z-index: 20;
+  }
+  
+  .chart-div {
+    /* background-color: rgba(90, 90, 90, 0.596); */
+    height: 97px;
+  }
+  #svg-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0);
+  }
+  /* /////////////////////chart///////////////// */
+  .progress {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+  .progress__meter,
+  .progress__value {
+    fill: none;
+  }
+  .progress__meter {
+    stroke: #3b4450;
+  }
+  .progress__value {
+    stroke-linecap: round;
+    stroke-dasharray: 335; /* the entire length*/
+    stroke-dasharray: 335;
+    animation-play-state: paused;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+  }
+  /* HTML /////////////////*/
+  #progress__valueHTML {
+    stroke: #f18261;
+    animation-name: htmlChart;
+  }
+  /* 3.35 = 1% of circumference*/
+  @keyframes htmlChart {
+    from {
+      stroke-dashoffset: 335;
+    }
+    to {
+      stroke-dashoffset: 16.75;
+    }
+  }
+  /* CSS /////////////////*/
+  #progress__valueCSS {
+    stroke: #15aabf;
+    animation-name: cssChart;
+  }
+  @keyframes cssChart {
+    from {
+      stroke-dashoffset: 335;
+    }
+    to {
+      stroke-dashoffset: 67;
+    }
+  }
+  /* javaScript /////////////////*/
+  #progress__valuejavaScript {
+    stroke: #f1bd74;
+    animation-name: javaScriptChart;
+  }
+  @keyframes javaScriptChart {
+    from {
+      stroke-dashoffset: 335;
+    }
+    to {
+      stroke-dashoffset: 100.5;
+    }
+  }
+  /* angularJs/////////////////*/
+  #progress__valueangularJs {
+    stroke: #dd0330;
+    animation-name: angularJsChart;
+  }
+  @keyframes angularJsChart {
+    from {
+      stroke-dashoffset: 335;
+    }
+    to {
+      stroke-dashoffset: 134;
+    }
+  }
+  /* reactJs/////////////////*/
+  #progress__valuereactJs {
+    stroke: #61dafb;
+    animation-name: angularJsChart;
+  }
+  @keyframes reactJsChart {
+    from {
+      stroke-dashoffset: 335;
+    }
+    to {
+      stroke-dashoffset: 150.75;
+    }
+  }
+  /* java/////////////////*/
+  #progress__valuejava {
+    stroke: #5382a1;
+    animation-name: javaChart;
+  }
+  @keyframes javaChart {
+    from {
+      stroke-dashoffset: 335;
+    }
+    to {
+      stroke-dashoffset: 33.5;
+    }
+  }
+  /* dotNet/////////////////*/
+  #progress__valuedotNet {
+    stroke: #694098;
+    animation-name: dotNetChart;
+  }
+  @keyframes dotNetChart {
+    from {
+      stroke-dashoffset: 335;
+    }
+    to {
+      stroke-dashoffset: 50.25;
+    }
+  }
+  /* cpp/////////////////*/
+  #progress__valuecpp {
+    stroke: #000000;
+    animation-name: cppChart;
+  }
+  @keyframes cppChart {
+    from {
+      stroke-dashoffset: 335;
+    }
+    to {
+      stroke-dashoffset: 100.5;
+    }
+  }
+  

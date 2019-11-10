@@ -53,7 +53,7 @@ a {
     padding: 15px;
     border: 1px solid rgb(75, 79, 83);
     margin: 10px 0px 10px 0px;
-    transition: 0.1s;
+    transition: 0.5s;
 }
 
 .nav-li:hover {
@@ -80,15 +80,15 @@ a {
     height: 50px;
     border: 1px solid rgb(75, 79, 83);
     /* background-color: rgba(0, 110, 255, 0.192); */
-    background-color: white;
     /* auto: => keep self to bottom! but parent must = flexBox! */
     margin: auto 5px 10px 5px;
 }
 
 #socialLinks i {
-    border: 1px solid rgb(75, 79, 83);
+    background-color: aliceblue;
+    border-radius: 2px;
     font-size: 20px;
-    transition: 0.1s;
+    transition: 0.03s;
     padding: 7px;
 }
 
