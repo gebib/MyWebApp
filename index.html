@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./src/style/footer.css">
     <link rel="stylesheet" href="./src/style/mediaQueries.css">
     <script src="./src/javaScript/script.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="icon" type="image/png" href="./assets/images/tab_icon.png">
 </head>
 
@@ -56,16 +56,16 @@
 
         <div id="socialLinks">
             <a href="https://github.com/gebib" rel="noopener noreferrer" target="_blank">
-                <i class="fa fa-github-square"></i>
+                <i class="fab fa-github-square" style="color: black;"></i>
             </a>
             <a href="https://www.linkedin.com/in/gebi-beshir-b52095138/" rel="noopener noreferrer" target="_blank">
-                <i class="fa fa-linkedin-square"></i>
+                <i class="fab fa-linkedin" style="color: #0077B5;"></i>
             </a>
             <a href="https://www.facebook.com/gebi.beshir" rel="noopener noreferrer" target="_blank">
-                <i class="fa fa-facebook-square"></i>
+                <i class="fab fa-facebook-square" style="color: #4267B2;"></i>
             </a>
             <a href="https://twitter.com/Wasdmer" rel="noopener noreferrer" target="_blank">
-                <i class="fa fa-twitter-square"></i>
+                <i class="fab fa-twitter-square" style="color: #1CA0F1;"></i>
             </a>
         </div>
     </nav>
@@ -105,32 +105,207 @@
                             <div id="about-tex-inner-div">
                                 <h1 id="about-me-header-p">ABOUT ME</h1>
                                 <p id="about-me-text-p">
-                                    <p>My name is Gebi Beshir. I’m an intermediate software developer, graduated with a bachelor's degree, as a software engineer from OsloMet, and have been learning and working as a freelancer since then.</p>
+                                    <p>My name is Gebi Beshir. I’m an intermediate software developer, graduated with a
+                                        bachelor's degree, as a software engineer from OsloMet, and have been learning
+                                        and working as a freelancer since then.</p>
 
-                                    <p>I have a genuine interest in computers, technology and electronics, and therefore also studied “Dataelektronikk” at Årstad VGS, previous to my study at OsloMet. And this helped me to better understand electronics and
-                                        computers in general, and how they operate, which have also been a great baseline for me, in order to be a better programmer.
+                                    <p>I have a genuine interest in computers, technology and electronics, and therefore
+                                        also studied “Dataelektronikk” at Årstad VGS, previous to my study of
+                                        "Dataingeniør" at OsloMet. Having an electronic background also
+                                        helped me to better understand electronics and computers in general, and how
+                                        they operate, which have also been a great baseline for me, in order to be a
+                                        better programmer.
                                     </p>
 
-                                    <p> While working as a freelancer, I have developed web applications using AngularJS. And tried out many personal and school related learning projects also with ReactJS, .NET, Java, and as well as developing website without
-                                        JavaScript framework, such as this website, which is developed entirely with HTML, CSS and JavaScript.
+                                    <p> While working as a freelancer, I have developed web applications using
+                                        AngularJS. And tried out many personal and school related learning projects also
+                                        with ReactJS, .NET, Java, and as well as developing website without
+                                        JavaScript framework, such as this website, which is developed entirely with
+                                        HTML, CSS and JavaScript.
                                     </p>
 
-                                    <p>I’ve yet to specialize in any specific area within software development, or as a fullstack developer, which is also what I’m looking forward to, but I'm currently able to work with an in depth software development for
+                                    <p>I’ve yet to specialize in any specific area within software development, or as a
+                                        fullstack developer, which is also what I’m looking forward to, but I'm
+                                        currently able to work with an in depth software development for
                                         desktop and mobile software using Java or .NET, and JavaScript frameworks.
                                     </p>
 
                                 </p>
                             </div>
                         </div>
-                        <div id="my-skill-level-div">skill levels
-                            <div class="skill-chart-container-div" id="html">html</div>
-                            <div class="skill-chart-container-div" id="css">css</div>
-                            <div class="skill-chart-container-div" id="JavaScript">JavaScript</div>
-                            <div class="skill-chart-container-div" id="AngularJs">AngularJs</div>
-                            <div class="skill-chart-container-div" id="ReactJs">ReactJs</div>
-                            <div class="skill-chart-container-div" id="Java">Java</div>
-                            <div class="skill-chart-container-div" id="dotNet">dotNet</div>
-                            <div class="skill-chart-container-div" id="cpp">cpp</div>
+                        <div id="my-skills-header-div">
+                            <h1 id="mySkills-h1">MY SKILLS</h1>
+                            <p id="skillText">Although I'm done with being a student at school, my studying still has
+                                continued. And
+                                therefore I'm continuously learning new things and improving what I've learned, and my
+                                skills are adding up! The following charts indicate
+                                where I think I am standing right now.
+                            </p>
+                            <hr>
+                            <div id="my-skill-level-main-div">
+
+                                <!-- //////////////HTML///////////////// -->
+                                <div class="skill-chart-container-div">
+                                    <p class="charts-text-p"> <i style="color: #F18261;" class="fab fa-html5"></i> HTML
+                                    </p>
+                                    <div class="chart-div">
+                                        <!-- percentage displayed here by JS -->
+                                        <p class="percentageLabel" id="skillLevel-p-html"></p>
+                                        <div id="svg-div">
+                                            <svg class="progress" width="120" height="120" viewBox="0 0 120 120">
+                                                <circle class="progress__meter" cx="60" cy="60" r="54"
+                                                    stroke-width="12" />
+                                                <circle class="progress__value" id="progress__valueHTML" cx="60" cy="60"
+                                                    r="54" stroke-width="12" fill="none" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ///////////////CSS//////////////// -->
+                                <div class="skill-chart-container-div">
+                                    <!-- change: color, icon, name -->
+                                    <p class="charts-text-p"> <i style="color: #15AABF;" class="fab fa-css3"></i> CSS</p>
+                                    <div class="chart-div">
+                                        <!-- percentage displayed here by JS -->
+                                        <!-- change: id -->
+                                        <p class="percentageLabel" id="skillLevel-p-css"></p>
+                                        <div id="svg-div">
+                                            <svg class="progress" width="120" height="120" viewBox="0 0 120 120">
+                                                <circle class="progress__meter" cx="60" cy="60" r="54"
+                                                    stroke-width="12" />
+                                                <!-- change: id -->
+                                                <circle class="progress__value" id="progress__valueCSS" cx="60" cy="60"
+                                                    r="54" stroke-width="12" fill="none" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                   <!-- ///////////////javaScript//////////////// -->
+                                   <div class="skill-chart-container-div">
+                                    <!-- change: color, icon, name -->
+                                    <p class="charts-text-p"> <i style="color: #F1BD74;" class="fab fa-js"></i> JavaScript</p>
+                                    <div class="chart-div">
+                                        <!-- percentage displayed here by JS -->
+                                        <!-- change: id -->
+                                        <p class="percentageLabel" id="skillLevel-p-javaScript"></p>
+                                        <div id="svg-div">
+                                            <svg class="progress" width="120" height="120" viewBox="0 0 120 120">
+                                                <circle class="progress__meter" cx="60" cy="60" r="54"
+                                                    stroke-width="12" />
+                                                <!-- change: id -->
+                                                <circle class="progress__value" id="progress__valuejavaScript" cx="60" cy="60"
+                                                    r="54" stroke-width="12" fill="none" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ///////////////angularJs//////////////// -->
+                                <div class="skill-chart-container-div">
+                                    <!-- change: color, icon, name -->
+                                    <p class="charts-text-p"> <i style="color: #DD0330;" class="fab fa-angular"></i> AngularJs</p>
+                                    <div class="chart-div">
+                                        <!-- percentage displayed here by JS -->
+                                        <!-- change: id -->
+                                        <p class="percentageLabel" id="skillLevel-p-angularJs"></p>
+                                        <div id="svg-div">
+                                            <svg class="progress" width="120" height="120" viewBox="0 0 120 120">
+                                                <circle class="progress__meter" cx="60" cy="60" r="54"
+                                                    stroke-width="12" />
+                                                <!-- change: id -->
+                                                <circle class="progress__value" id="progress__valueangularJs" cx="60" cy="60"
+                                                    r="54" stroke-width="12" fill="none" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                  <!-- ///////////////reactJs//////////////// -->
+                                  <div class="skill-chart-container-div">
+                                    <!-- change: color, icon, name -->
+                                    <p class="charts-text-p"> <i style="color: #61DAFB;" class="fab fa-react"></i> ReactJs</p>
+                                    <div class="chart-div">
+                                        <!-- percentage displayed here by JS -->
+                                        <!-- change: id -->
+                                        <p class="percentageLabel" id="skillLevel-p-reactJs"></p>
+                                        <div id="svg-div">
+                                            <svg class="progress" width="120" height="120" viewBox="0 0 120 120">
+                                                <circle class="progress__meter" cx="60" cy="60" r="54"
+                                                    stroke-width="12" />
+                                                <!-- change: id -->
+                                                <circle class="progress__value" id="progress__valuereactJs" cx="60" cy="60"
+                                                    r="54" stroke-width="12" fill="none" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <!-- ///////////////java//////////////// -->
+                                 <div class="skill-chart-container-div">
+                                    <!-- change: color, icon, name -->
+                                    <p class="charts-text-p"> <i style="color: #5382A1;" class="fab fa-java"></i> Java</p>
+                                    <div class="chart-div">
+                                        <!-- percentage displayed here by JS -->
+                                        <!-- change: id -->
+                                        <p class="percentageLabel" id="skillLevel-p-java"></p>
+                                        <div id="svg-div">
+                                            <svg class="progress" width="120" height="120" viewBox="0 0 120 120">
+                                                <circle class="progress__meter" cx="60" cy="60" r="54"
+                                                    stroke-width="12" />
+                                                <!-- change: id -->
+                                                <circle class="progress__value" id="progress__valuejava" cx="60" cy="60"
+                                                    r="54" stroke-width="12" fill="none" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <!-- ///////////////dotNet//////////////// -->
+                                 <div class="skill-chart-container-div">
+                                    <!-- change: color, icon, name -->
+                                    <p class="charts-text-p"> <i style="color: #694098;" class="fab fa-csharp"></i> .NET</p>
+                                    <div class="chart-div">
+                                        <!-- percentage displayed here by JS -->
+                                        <!-- change: id -->
+                                        <p class="percentageLabel" id="skillLevel-p-dotNet"></p>
+                                        <div id="svg-div">
+                                            <svg class="progress" width="120" height="120" viewBox="0 0 120 120">
+                                                <circle class="progress__meter" cx="60" cy="60" r="54"
+                                                    stroke-width="12" />
+                                                <!-- change: id -->
+                                                <circle class="progress__value" id="progress__valuedotNet" cx="60" cy="60"
+                                                    r="54" stroke-width="12" fill="none" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <!-- ///////////////cpp//////////////// -->
+                                 <div class="skill-chart-container-div">
+                                    <!-- change: color, icon, name -->
+                                    <p class="charts-text-p"> <i style="color: #000000;" class="fab fa-csharp"></i> C++</p>
+                                    <div class="chart-div">
+                                        <!-- percentage displayed here by JS -->
+                                        <!-- change: id -->
+                                        <p class="percentageLabel" id="skillLevel-p-cpp"></p>
+                                        <div id="svg-div">
+                                            <svg class="progress" width="120" height="120" viewBox="0 0 120 120">
+                                                <circle class="progress__meter" cx="60" cy="60" r="54"
+                                                    stroke-width="12" />
+                                                <!-- change: id -->
+                                                <circle class="progress__value" id="progress__valuecpp" cx="60" cy="60"
+                                                    r="54" stroke-width="12" fill="none" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- 
+                                <div class="skill-chart-container-div" id="JavaScript-chart">JavaScript</div>
+                                <div class="skill-chart-container-div" id="AngularJs-chart">AngularJs</div>
+                                <div class="skill-chart-container-div" id="ReactJs-chart">ReactJs</div>
+                                <div class="skill-chart-container-div" id="Java-chart">Java</div>
+                                <div class="skill-chart-container-div" id="dotNet-chart">dotNet</div>
+                                <div class="skill-chart-container-div" id="cpp-chart">cpp</div> -->
+
+                                <!-- ///////////////////////////////////////////////////// -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -140,7 +315,10 @@
         <div id="p3">
             <div class="main-page-container">
                 <div class="main-inner-middle-container">
-                    <div id="p3-content-container"> divs with content..</div>
+                    <div id="p3-content-container"> dont know how many div here
+
+
+                    </div>
                 </div>
             </div>
         </div>

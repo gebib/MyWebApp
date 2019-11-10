@@ -1,10 +1,42 @@
 var screenWidth = 0;
 var menuIsShowing = null;
+//animation variables
+var fps = 60;
+var duration = 5; //s
+var start = 0;//%
+
+var chartFinishPercentages = {
+    html: 95,
+    css: 80,
+    javaScript: 70,
+    angularJs: 60,
+    reactJs: 55,
+    java: 90,
+    dotNet: 85,
+    cpp: 70,
+} //%
+var positions = {
+    htmlPosition: start,
+    cssPosition: start,
+    javaScriptPosition: start,
+    angularJsPosition: start,
+    reactJsPosition: start,
+    javaPosition: start,
+    dotNetPosition: start,
+    cppPosition: start
+};
+var time = 0;
+var handler;
+//////circle charts////////
+var RADIUS = 54;
+var CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+///////////////////////////////////
+var hasPlayedOnce = false;
+
 // start 
-window.onload = function() {
+window.onload = function () {
     this.navClick('n1', 'p1');
     this.windowResized(window.innerWidth); // set state on reload
-    // binary clock
 };
 
 
@@ -25,12 +57,12 @@ navClick = (navId, pageId) => {
         let tempNavId = "n" + i;
         let elem = document.getElementById(tempNavId);
         if (tempNavId === navId) {
-            elem.style.backgroundColor = "aliceblue";
+            elem.style.backgroundColor = "white";
             elem.style.color = "black";
             elem.style.fontWeight = "bold";
         } else {
             elem.style.backgroundColor = "inherit";
-            elem.style.color = "aliceblue";
+            elem.style.color = "white";
             elem.style.fontWeight = "bold";
         }
     }
@@ -42,12 +74,12 @@ updateNavLinkBg = (navId) => {
         let tempNavId = "n" + i;
         let elem = document.getElementById(tempNavId);
         if (tempNavId === navId) {
-            elem.style.backgroundColor = "aliceblue";
+            elem.style.backgroundColor = "white";
             elem.style.color = "black";
             elem.style.fontWeight = "bold";
         } else {
             elem.style.backgroundColor = "inherit";
-            elem.style.color = "aliceblue";
+            elem.style.color = "white";
             elem.style.fontWeight = "bold";
         }
     }
@@ -66,8 +98,20 @@ windowScrolling = () => {
 
     if (Math.abs(homeDistanceY) <= 602) {
         stickyCvDownloadButton.style.display = "none";
-    } else {
+    } else if (Math.abs(homeDistanceY) > 602) {
         stickyCvDownloadButton.style.display = "block";
+        // to be called once
+        if (this.hasPlayedOnce === false) {
+            this.hasPlayedOnce = true;
+            //initiate and play charts animations
+            this.handler = setInterval(playChartsAnimations, 1000 / fps);
+            let percentageCircle = document.getElementsByClassName('progress__value');
+            // unpause all animation for all clas of "progress__value"
+            for (let i = 0; i < percentageCircle.length; i++) {
+                percentageCircle[i].style.WebkitAnimationPlayState = "running";
+                percentageCircle[i].style.animationPlayState = "running";
+            }
+        }
     }
 
     if (Math.abs(homeDistanceY) <= (window.innerHeight / 2)) {
@@ -85,7 +129,6 @@ windowScrolling = () => {
     if (Math.abs(contactDistanceY) <= (window.innerHeight / 2)) {
         this.updateNavLinkBg('n5');
     }
-
 }
 
 //smooth scrolling/////using window.scrollTo, compatible with most browsers.
@@ -115,36 +158,36 @@ elementYpos = (eID) => {
 
 // do the scrolling
 smoothScroll = (eID) => {
-        let startY = currentYPos();
-        let stopY = elementYpos(eID);
-        let distance = stopY > startY ? stopY - startY : startY - stopY;
-        if (distance < 100) {
-            scrollTo(0, stopY);
-            return;
-        }
-        let speed = Math.round(distance / 100);
-        if (speed >= 20) speed = 20;
-        let step = Math.round(distance / 25);
-        let leapY = stopY > startY ? startY + step : startY - step;
-        let timer = 0;
-        if (stopY > startY) {
-            for (let i = startY; i < stopY; i += step) {
-                setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
-                leapY += step;
-                if (leapY > stopY) leapY = stopY;
-                timer++;
-            }
-            return;
-        }
-        for (let i = startY; i > stopY; i -= step) {
+    let startY = currentYPos();
+    let stopY = elementYpos(eID);
+    let distance = stopY > startY ? stopY - startY : startY - stopY;
+    if (distance < 100) {
+        scrollTo(0, stopY);
+        return;
+    }
+    let speed = Math.round(distance / 100);
+    if (speed >= 20) speed = 20;
+    let step = Math.round(distance / 25);
+    let leapY = stopY > startY ? startY + step : startY - step;
+    let timer = 0;
+    if (stopY > startY) {
+        for (let i = startY; i < stopY; i += step) {
             setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
-            leapY -= step;
-            if (leapY < stopY) leapY = stopY;
+            leapY += step;
+            if (leapY > stopY) leapY = stopY;
             timer++;
         }
-        return false;
+        return;
     }
-    //end smooth scroll//////////////////
+    for (let i = startY; i > stopY; i -= step) {
+        setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
+        leapY -= step;
+        if (leapY < stopY) leapY = stopY;
+        timer++;
+    }
+    return false;
+}
+//end smooth scroll//////////////////
 
 // show hidden menu
 showHideMenu = () => {
@@ -203,3 +246,51 @@ windowResized = (screenWidth) => {
         this.menuIsShowing = true;
     }
 }
+///////////////////////////percentage animation///////////////////////////
+// x: percent
+// t: current time,
+// b: beginning value,
+// c: change in value,
+// d: duration
+// standard easout function: formula credit goes to http://easings.net/
+easeInOutQuad = (t, b, c, d) => {
+    if ((t /= d / 2) < 1) {
+        return c / 2 * t * t + b;
+    } else {
+        return -c / 2 * ((--t) * (t - 2) - 1) + b;
+    }
+}
+
+function playChartsAnimations() {
+    time += 1 / fps;
+
+    positions.htmlPosition = this.easeInOutQuad(time, start, chartFinishPercentages.html, duration);
+    document.getElementById("skillLevel-p-html").innerHTML = Math.floor(positions.htmlPosition) + "%";
+
+    positions.cssPosition = this.easeInOutQuad(time, start, chartFinishPercentages.css, duration);
+    document.getElementById("skillLevel-p-css").innerHTML = Math.floor(positions.cssPosition) + "%";
+    
+    positions.javaScriptPosition = this.easeInOutQuad(time, start, chartFinishPercentages.javaScript, duration);
+    document.getElementById("skillLevel-p-javaScript").innerHTML = Math.floor(positions.javaScriptPosition) + "%";
+    
+    positions.angularJsPosition = this.easeInOutQuad(time, start, chartFinishPercentages.angularJs, duration);
+    document.getElementById("skillLevel-p-angularJs").innerHTML = Math.floor(positions.angularJsPosition) + "%";
+
+    positions.reactJsPosition = this.easeInOutQuad(time, start, chartFinishPercentages.reactJs, duration);
+    document.getElementById("skillLevel-p-reactJs").innerHTML = Math.floor(positions.reactJsPosition) + "%";
+
+    positions.javaPosition = this.easeInOutQuad(time, start, chartFinishPercentages.java, duration);
+    document.getElementById("skillLevel-p-java").innerHTML = Math.floor(positions.javaPosition) + "%";
+
+    positions.dotNetPosition = this.easeInOutQuad(time, start, chartFinishPercentages.dotNet, duration);
+    document.getElementById("skillLevel-p-dotNet").innerHTML = Math.floor(positions.dotNetPosition) + "%";
+
+    positions.cppPosition = this.easeInOutQuad(time, start, chartFinishPercentages.cpp, duration);
+    document.getElementById("skillLevel-p-cpp").innerHTML = Math.floor(positions.cppPosition) + "%";
+
+    if (positions.htmlPosition >= chartFinishPercentages.html) {
+        clearInterval(this.handler); //common for all charts
+        return;
+    }
+}
+

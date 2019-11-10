@@ -30,7 +30,7 @@
     padding: 0px;
     width: 360px;
     font-weight: 500;
-    color: aliceblue;
+    color: white;
     line-height: 34px;
     height: 35px;
 }
@@ -42,19 +42,16 @@
     width: 360px;
     font-weight: 700;
     line-height: 120px;
-    color: aliceblue;
+    color: white;
 }
 
 #beshir {
-    height: 70px;
     margin: 3px;
-    /* padding: 0; */
     font-size: 70px;
     border: 1px solid rgb(75, 79, 83);
+    height: 70px;
     width: 360px;
-    /* fill width with text */
-    text-align: justify;
-    color: aliceblue;
+    line-height: 70px;
 }
 
 #beshir:after {
