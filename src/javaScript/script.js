@@ -99,18 +99,6 @@ windowScrolling = () => {
         stickyCvDownloadButton.style.display = "none";
     } else if (Math.abs(homeDistanceY) > 602) {
         stickyCvDownloadButton.style.display = "block";
-        // to be called once
-        if (this.hasPlayedOnce === false) {
-            this.hasPlayedOnce = true;
-            //initiate and play charts animations
-            this.handler = setInterval(playChartsAnimations, 1000 / fps);
-            let percentageCircle = document.getElementsByClassName('progress__value');
-            // unpause all animation for all clas of "progress__value"
-            for (let i = 0; i < percentageCircle.length; i++) {
-                percentageCircle[i].style.WebkitAnimationPlayState = "running";
-                percentageCircle[i].style.animationPlayState = "running";
-            }
-        }
     }
 
     if (Math.abs(homeDistanceY) <= (window.innerHeight / 2)) {
@@ -124,6 +112,16 @@ windowScrolling = () => {
     }
     if (Math.abs(contactDistanceY) <= (window.innerHeight / 2)) {
         this.updateNavLinkBg('n4');
+    }
+
+    //play charts if in viewport
+    let cppChartDistanceToTop = document.getElementById('progress__valuecpp').getBoundingClientRect().top;
+    let screenHeight = window.innerHeight;
+
+    if (Math.floor(cppChartDistanceToTop) < screenHeight - 200) { // 200 is offset, so all charts are visible.
+        if (this.hasPlayedOnce === false) {
+            this.playChartsAnimations();
+        }
     }
 }
 
@@ -257,7 +255,24 @@ easeInOutQuad = (t, b, c, d) => {
     }
 }
 
-function playChartsAnimations() {
+// play charts animations
+playChartsAnimations = () => {
+    // to be called once
+    if (this.hasPlayedOnce === false) {
+        this.hasPlayedOnce = true;
+        //initiate and play charts animations
+        this.handler = setInterval(runChartsAnimations, 1000 / fps);
+        let percentageCircle = document.getElementsByClassName('progress__value');
+        // unpause all animation for all clas of "progress__value"
+        for (let i = 0; i < percentageCircle.length; i++) {
+            percentageCircle[i].style.WebkitAnimationPlayState = "running";
+            percentageCircle[i].style.animationPlayState = "running";
+        }
+    }
+}
+
+//feed charts with their appropriate data
+function runChartsAnimations() {
     time += 1 / fps;
 
     positions.htmlPosition = this.easeInOutQuad(time, start, chartFinishPercentages.html, duration);
@@ -265,10 +280,10 @@ function playChartsAnimations() {
 
     positions.cssPosition = this.easeInOutQuad(time, start, chartFinishPercentages.css, duration);
     document.getElementById("skillLevel-p-css").innerHTML = Math.floor(positions.cssPosition) + "%";
-    
+
     positions.javaScriptPosition = this.easeInOutQuad(time, start, chartFinishPercentages.javaScript, duration);
     document.getElementById("skillLevel-p-javaScript").innerHTML = Math.floor(positions.javaScriptPosition) + "%";
-    
+
     positions.angularJsPosition = this.easeInOutQuad(time, start, chartFinishPercentages.angularJs, duration);
     document.getElementById("skillLevel-p-angularJs").innerHTML = Math.floor(positions.angularJsPosition) + "%";
 
