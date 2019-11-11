@@ -32,14 +32,35 @@ var RADIUS = 54;
 var CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 ///////////////////////////////////
 var hasPlayedOnce = false;
-
+//////////////form values///////////
+var name;
+var email;
+var message;
 // start 
 window.onload = function () {
     this.navClick('n1', 'p1');
     this.windowResized(window.innerWidth); // set state on reload
+    //form data listeners
+    const inputName = document.getElementById('inputName');
+    const inputEmail = document.getElementById('inputEmail');
+    const inputMessage = document.getElementById('inputMessage');
+    inputName.addEventListener('input', test);
+    inputEmail.addEventListener('input', test);
+    inputMessage.addEventListener('input', test);
 };
 
-
+test = (e) => {
+    if (e.target.id === 'inputName') {
+        this.name = e.target.value;
+        console.log(this.name);
+    } else if (e.target.id === 'inputEmail') {
+        this.email = e.target.value;
+        console.log(this.email);
+    } else if (e.target.id === 'inputMessage') {
+        this.message = e.target.value;
+        console.log(this.message);
+    }
+}
 // nav links manipulations, do some things when navs are clicked
 // nav ids: n1=home, n2=about, n3=projects, n3=contact
 // corresponding page ids: p1, p2, p3, p4, for scrolling to.
@@ -305,3 +326,8 @@ function runChartsAnimations() {
     }
 }
 
+// handle form submit
+handleFormSubmit = () => {
+    alert('Message sent!');
+    console.log('//////:', this.name, '//\n', this.email, '//\n', this.message);
+}

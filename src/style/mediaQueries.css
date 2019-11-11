@@ -63,4 +63,7 @@
   #projectsContent-div {
     grid-template-columns: repeat(auto-fill, 400px);
   }
+  #contact-texts-div {
+    width: 100%;
+  }
 }

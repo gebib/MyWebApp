@@ -11,7 +11,7 @@
   padding-bottom: 20px;
   border-top: 1px solid green;
 }
-#projectsHeader-h1 {
+.contact-h1-p{
   margin-top: 0px;
   margin-bottom: 10px;
 }
@@ -23,7 +23,7 @@
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.377);
   padding-top: 20px;
-
+  padding-bottom: 20px;
 }
 
 /* ////cards */
