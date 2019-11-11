@@ -58,7 +58,6 @@
     background-color: rgb(203, 231, 255);
   }
   #my-skill-level-main-div {
-    background-color: #ffee00;
     grid-template-columns: repeat(auto-fill, 120px);
   }
   #projectsContent-div {

@@ -1,27 +1,106 @@
 #p3-content-container {
-  
+  /* background-color: white; */
 }
 
 #projectsHeader-div {
-  border: 1px solid blue;
+  background-color: #303741;
+  padding: 0px 10px 10px 20px;
+  grid-column-start: span 2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16);
+  padding-top: 15px;
+  padding-bottom: 20px;
+  border-top: 1px solid green;
+}
+#projectsHeader-h1 {
+  margin-top: 0px;
+  margin-bottom: 10px;
 }
 #projectsContent-div {
-  border: 5px solid blueviolet;
-  padding: 5px;
-
   display: grid;
   grid-template-columns: repeat(2, 400px);
   gap: 10px;
   justify-items: center;
   justify-content: center;
+  background-color: rgba(0, 0, 0, 0.377);
+  padding-top: 20px;
 
 }
 
-#project-1,
-#project-2,
-#project-3,
-#project-4 {
+/* ////cards */
+.projects-container {
   width: 400px;
-  height: 300px;
-  border: 2px solid rgb(255, 0, 0);
+  height: 355px;
+  background-color: white;
+  border-radius: 5px;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.404); */
+}
+.cardHeader-div {
+  width: 100%;
+  height: 150px;
+  /* background-color: rgb(113, 253, 113); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px 5px 0px 0px;
+}
+#myPage {
+  background-image: url("/assets/images/thispage.png");
+}
+#osloSkredder {
+  background-image: url("/assets/images/osloskredder.png");
+}
+#ihoo {
+  background-image: url("/assets/images/ihoo.png");
+}
+#idrettsApp {
+  background-image: url("/assets/images/idrettsapp.png");
+}
+.projectTechInfo-div {
+  color: white;
+  width: 100%;
+  height: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #3d3d5c;
+}
+
+.pName-p {
+  margin: 0;
+  margin-left: 10px;
+  color: white;
+}
+.techs-p {
+  margin: 0;
+  margin-left: 10px;
+  color: #429cff;
+}
+.description-div {
+  width: 100%;
+  height: 80px;
+}
+.projectDescription-p {
+  color: black;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.linkButtons-div {
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  height: 40px;
+  border-top: 1px solid rgb(230, 224, 224);
+}
+.btn {
+  margin: 5px 0px 2px 10px;
+  width: 100px;
+  color: #3f51b5;
+  border-radius: 2px;
+  border: none;
+  background: none;
+}
+.btn:hover {
+  background-color: #ececec;
+  cursor: pointer;
+}
+.btn:active {
+  background-color: rgb(211, 209, 209);
 }
