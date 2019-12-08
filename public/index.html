@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./src/style/mediaQueries.css">
     <script src="./src/javaScript/script.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <link rel="icon" type="image/png" href="./assets/images/tab_icon.png">
+    <link rel="icon" type="image/png" href="./src/assets/images/tab_icon.png">
 </head>
 
 <body onresize="windowResized(this.innerWidth)" onscroll="windowScrolling()">
@@ -28,7 +28,7 @@
     <!-- nav -->
     <nav id="nav-main-container">
         <div id="image-div">
-            <img id="image-nav" src="./assets/images/meGS.png" alt="me">
+            <img id="image-nav" src="./src/assets/images/meGS.png" alt="me">
         </div>
         <div id="name-div">
             Gebi Beshir
@@ -51,24 +51,25 @@
         </div>
 
         <div id="socialLinks">
-            <a href="https://github.com/gebib" rel="noopener noreferrer">
-                <i class="fab fa-github-square" target="_blank" style="color: black;"></i>
+            <a target="_blank" href="https://github.com/gebib" rel="noopener noreferrer">
+                <i class="fab fa-github-square" style="color: black;"></i>
             </a>
-            <a href="https://www.linkedin.com/in/gebi-beshir-b52095138/" rel="noopener noreferrer">
-                <i class="fab fa-linkedin" style target="_blank"="color: #0077B5;"></i>
+            <a target="_blank" href="https://www.linkedin.com/in/gebi-beshir-b52095138/" rel="noopener noreferrer">
+                <i class="fab fa-linkedin" style="color:#0077B5;"></i>
             </a>
-            <a href="https://www.facebook.com/gebi.beshir" rel="noopener noreferrer">
-                <i class="fab fa-facebook-square" target="_blank" style="color: #4267B2;"></i>
+            <a target="_blank" href="https://www.facebook.com/gebi.beshir" rel="noopener noreferrer">
+                <i class="fab fa-facebook-square" style="color:#4267B2;"></i>
             </a>
-            <a href="https://twitter.com/Wasdmer" rel="noopener noreferrer">
-                <i class="fab fa-twitter-square" target="_blank" style="color: #1CA0F1;"></i>
+            <a target="_blank" href="https://twitter.com/Wasdmer" rel="noopener noreferrer">
+                <i class="fab fa-twitter-square" style="color:#1CA0F1;"></i>
             </a>
         </div>
     </nav>
 
     <div id="stick-cv-btn-div">
         <a id="cv-a" href="#">
-            <a href="#" id="downloadButton-sticky">Download CV</a>
+            <a target="_blank" href="https://drive.google.com/file/d/1D_sTUW3wmODjEnGMrxLVrd-daLZ2_FKX/view?usp=sharing"
+                id="downloadButton-sticky">View / Download CV</a>
         </a>
     </div>
 
@@ -83,7 +84,9 @@
                     <p id="beshir">B E S H I R</p>
                     <p id="skill">INTERMEDIATE SOFTWARE DEVELOPER</p>
                     <a id="cv-a" href="#">
-                        <a href="#" id="downloadButton">Download CV</a>
+                        <a target="_blank"
+                            href="https://drive.google.com/file/d/1D_sTUW3wmODjEnGMrxLVrd-daLZ2_FKX/view?usp=sharing"
+                            id="downloadButton">View / Download CV</a>
                     </a>
                 </div>
             </div>
@@ -95,7 +98,7 @@
                 <div class="main-inner-middle-container">
                     <div id="p2-content-container">
                         <div id="my-picture-div">
-                            <img id="image-about" src="./assets/images/meCL.png" alt="me">
+                            <img id="image-about" src="src/assets/images/meCL.png" alt="me">
                         </div>
                         <div id="about-text-div">
                             <div id="about-tex-inner-div">
@@ -105,37 +108,52 @@
                                         bachelor's degree, as a software engineer from OsloMet, and have been learning
                                         and working as a freelancer since then.</p>
 
-                                    <p>I have a genuine interest in computers, technology and electronics, and therefore
-                                        also studied “Dataelektronikk” at Årstad VGS, previous to my study of
-                                        "Dataingeniør" at OsloMet. Having an electronic background also
-                                        helped me to better understand electronics and computers in general, and how
-                                        they operate, which have also been a great baseline for me, in order to be a
-                                        better programmer.
+                                    <p>I have always been interested in computers, technology and electronics, so I
+                                        studied “Dataelektronikk” at Årstad VGS, previous to studying at OsloMet, which
+                                        helped me to better understand electronics and computers in general, and be a
+                                        better
+                                        programmer.
                                     </p>
 
-                                    <p> While working as a freelancer, I have developed web applications using
-                                        AngularJS. And tried out many personal and school related learning projects also
-                                        with ReactJS, .NET, Java, and as well as developing website without
-                                        JavaScript framework, such as this website, which is developed entirely with
-                                        HTML, CSS and JavaScript.
-                                    </p>
+                                    <p>So the reason I studied computer science is mainly to study the things I
+                                        love to do, and getting a job in the IT industry, since that is where i can
+                                        get to work with things I'm passionate about.
 
-                                    <p>I’ve yet to specialize in any specific area within software development, or as a
-                                        fullstack developer, which is also what I’m looking forward to, but I'm
-                                        currently able to work with an in depth software development for
-                                        desktop and mobile software using Java or .NET, and JavaScript frameworks.
+                                        <p>And having a great passion for programming is also what
+                                            pushed me through the school, and also what drives me to keep
+                                            learning new things in programming every day.
+                                        </p>
                                     </p>
-
-                                </p>
                             </div>
                         </div>
                         <div id="my-skills-header-div">
                             <h1 id="mySkills-h1">MY SKILLS</h1>
-                            <p id="skillText">Although I'm done with being a student at school, my studying still has
-                                continued. And
-                                therefore I'm continuously learning new things and improving what I've learned, and my
-                                skills are adding up! The following charts indicate
-                                where I think I am standing right now, in majorly known development languages.
+                            <p id="skillText">
+                                <p>At the time when i was done with my school, I was less experienced to do what I am
+                                    capable of doing now, in another word, my skills now is well above a typical
+                                    students who just finished their school as an engineer of computer
+                                    science. </p>
+
+                                <p>While working as a freelancer, I have developed web applications using AngularJS. And
+                                    tried out many personal and school related learning projects also with ReactJS,
+                                    .NET, Java, and as well as developing website without
+                                    JavaScript framework, such as this website, which is developed entirely with HTML,
+                                    CSS and JavaScript.</p>
+
+                                <p>I’ve yet to specialize in any specific area within software development, or as a
+                                    fullstack developer, which is also what I’m looking forward to, but I'm currently
+                                    able to work with an in depth software development for desktop
+                                    and mobile software using Java, .NET, and JavaScript frameworks. Therefore I also
+                                    try to do my freelance projects in various frameworks and programming
+                                    environments, mainly to gain my experience.</p>
+
+                                <p> So, although I'm done with being a student at school, my studying still has
+                                    continued, and I'm continuously learning new things and improving what I've learned,
+                                    developing my skills! The following charts indicate
+                                    where I think I am standing right now, in the majorly known software development
+                                    languages and frameworks.
+                                </p>
+
                             </p>
                             <div id="my-skill-level-main-div">
 
@@ -180,7 +198,8 @@
                                 <div class="skill-chart-container-div">
                                     <!-- change: color, icon, name -->
                                     <p class="charts-text-p"> <i style="color: #F1BD74;" class="fab fa-js"></i>
-                                        JavaScript</p>
+                                        JavaScript
+                                    </p>
                                     <div class="chart-div">
                                         <!-- percentage displayed here by JS -->
                                         <!-- change: id -->
@@ -200,7 +219,8 @@
                                 <div class="skill-chart-container-div">
                                     <!-- change: color, icon, name -->
                                     <p class="charts-text-p"> <i style="color: #DD0330;" class="fab fa-angular"></i>
-                                        AngularJs</p>
+                                        AngularJs
+                                    </p>
                                     <div class="chart-div">
                                         <!-- percentage displayed here by JS -->
                                         <!-- change: id -->
@@ -220,7 +240,8 @@
                                 <div class="skill-chart-container-div">
                                     <!-- change: color, icon, name -->
                                     <p class="charts-text-p"> <i style="color: #61DAFB;" class="fab fa-react"></i>
-                                        ReactJs</p>
+                                        ReactJs
+                                    </p>
                                     <div class="chart-div">
                                         <!-- percentage displayed here by JS -->
                                         <!-- change: id -->
@@ -279,7 +300,8 @@
                                 <!-- ///////////////cpp//////////////// -->
                                 <div class="skill-chart-container-div">
                                     <!-- change: color, icon, name -->
-                                    <p class="charts-text-p"> <i style="color: #000000;" class="fab fa-csharp"></i> C++
+                                    <p class="charts-text-p"> <i style="color: aliceblue;" class="fab fa-csharp"></i>
+                                        C++
                                     </p>
                                     <div class="chart-div">
                                         <!-- percentage displayed here by JS -->
@@ -311,8 +333,7 @@
                         <div id="projectsHeader-div">
                             <h1 id="projectsHeader-h1">PROJECTS</h1>
                             <p id="projectsText">These are projects that i have worked on so far on my own, except for
-                                the
-                                "Idretts-App", that one was developed by a team of three including my self.
+                                the "Idretts-App", which was developed by a team of three including my self.
                             </p>
                         </div>
                         <div id="projectsContent-div">
@@ -340,6 +361,10 @@
                             <!-- ////////////OsloSkredder/////////////////// -->
                             <div class="projects-container">
                                 <div class="cardHeader-div" id="osloSkredder">
+                                    <div class="projectTechIcon">
+                                        <i style="color: #DD0330; background-color: aliceblue; padding: 5px; margin-right: 2px; border-radius: 5px;"
+                                            class="fab fa-angular fa-2x"></i>
+                                    </div>
                                 </div>
                                 <div class="projectTechInfo-div">
                                     <p class="pName-p">AngularJS 8 Web-App</p>
@@ -362,6 +387,10 @@
                             <!-- ////////////ihoo/////////////////// -->
                             <div class="projects-container">
                                 <div class="cardHeader-div" id="ihoo">
+                                    <div class="projectTechIcon">
+                                        <i style="color: #DD0330; background-color: aliceblue; padding: 5px; margin-right: 2px; border-radius: 5px;"
+                                            class="fab fa-angular fa-2x"></i>
+                                    </div>
                                 </div>
                                 <div class="projectTechInfo-div">
                                     <p class="pName-p">AngularJS 5 Web-App</p>
@@ -369,9 +398,8 @@
                                 </div>
                                 <div class="description-div">
                                     <p class="projectDescription-p">
-                                        "IHOO" also is AngularJS based website, used to post information for it's
-                                        users, and text, forum like discussions for the
-                                        Oromo organization in Oslo.
+                                        "IHOO" also is AngularJS based website, used to post information for it's users,
+                                        and text, forum like discussions for the Oromo organization in Oslo.
                                     </p>
                                 </div>
                                 <div class="linkButtons-div">
@@ -385,16 +413,19 @@
                             <!-- ////////////edretts app/////////////////// -->
                             <div class="projects-container">
                                 <div class="cardHeader-div" id="idrettsApp">
+                                    <div class="projectTechIcon">
+                                        <i style="color: #5382A1; background-color: aliceblue; padding: 5px; margin-right: 2px; border-radius: 5px;"
+                                            class="fab fa-java fa-2x"></i>
+                                    </div>
                                 </div>
                                 <div class="projectTechInfo-div">
-                                    <p class="pName-p">Android-App</p>
-                                    <p class="techs-p">Java, CSS, XML, Gradle, Firebase</p>
+                                    <p class="pName-p">Idretts-App</p>
+                                    <p class="techs-p">Android, Java, CSS, XML, Gradle, Firebase</p>
                                 </div>
                                 <div class="description-div">
                                     <p class="projectDescription-p">
-                                        "Idretts-App" Final project of my final year at HiOA. It's Android
-                                        application used by soccer team trainer, for managing and communicating
-                                        the attendees.
+                                        "Idretts-App" Final project of my final year at HiOA. It's Android application
+                                        used by soccer team trainer, for managing and communicating the attendees.
                                     </p>
                                 </div>
                                 <div class="linkButtons-div">
@@ -421,22 +452,43 @@
     <footer id="footer-body-level">
         <div id="footer-content-container">
             <div id="contact-texts-div">
-                <h1 >CONTACT</h1>
-                <p class="contact-h1-p">To contact me, please give me a call or use the following form to
+                <h1>CONTACT</h1>
+                <p class="contact-h1-p">To contact me, please give me a call on: <strong style="color: #3E82FF;">46 78 13 17</strong>, or use the following form to
                     send me your message. <br> I appreciate it, and would like to hear from you! Thank you.</p>
                 <!-- //////////contact form -->
                 <div id="contactForm">
-                    <form id="formSubmit" onsubmit="handleFormSubmit()">      
-                        <input id="inputName"  name="name" type="text" class="feedback-input" placeholder="Name" />   
+                    <form id="formSubmit" onsubmit="handleFormSubmit()">
+                        <input id="inputName" name="name" type="text" class="feedback-input" placeholder="Name" />
                         <input id="inputEmail" name="email" type="text" class="feedback-input" placeholder="Email" />
                         <textarea id="inputMessage" name="text" class="feedback-input" placeholder="Message"></textarea>
                         <input type="submit" value="SUBMIT" />
-                      </form>
+                    </form>
                 </div>
                 <!-- ///////////////////////// -->
             </div>
         </div>
     </footer>
+    <!-- /////////////FIREBASE ESSETIALS///////////// -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAr7oTg5Be-qtz5dMXgRJewSy4nkJtx4Gw",
+            authDomain: "gebi-beshir.firebaseapp.com",
+            databaseURL: "https://gebi-beshir.firebaseio.com",
+            projectId: "gebi-beshir",
+            storageBucket: "gebi-beshir.appspot.com",
+            messagingSenderId: "494304867709",
+            appId: "1:494304867709:web:dc357cd180827fb3d60814"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <!-- /////////////FIREBASE ESSENTIALS//////////// -->
 </body>
 
 </html>

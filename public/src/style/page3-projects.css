@@ -11,6 +11,13 @@
   padding-bottom: 20px;
   border-top: 1px solid green;
 }
+.projectTechIcon{
+  display: grid;
+  justify-content: end;
+  /* background-color: #429dffc2; */
+  width: 100%;
+
+}
 .contact-h1-p{
   margin-top: 0px;
   margin-bottom: 10px;
@@ -43,16 +50,16 @@
   border-radius: 5px 5px 0px 0px;
 }
 #myPage {
-  background-image: url("/assets/images/thispage.png");
+  background-image: url("../assets/images/thispage.PNG");
 }
 #osloSkredder {
-  background-image: url("/assets/images/osloskredder.png");
+  background-image: url("../assets/images/osloskredder.png");
 }
 #ihoo {
-  background-image: url("/assets/images/ihoo.png");
+  background-image: url("../assets/images/ihoo.png");
 }
 #idrettsApp {
-  background-image: url("/assets/images/idrettsapp.png");
+  background-image: url("../assets/images/idrettsapp.png");
 }
 .projectTechInfo-div {
   color: white;

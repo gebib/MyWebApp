@@ -1,21 +1,21 @@
 var screenWidth = 0;
 var menuIsShowing = null;
 //animation variables
-var fps = 60;
-var duration = 5; //s
-var start = 0;//%
+const fps = 60;
+const duration = 5; //s
+const start = 0; //%
 
-var chartFinishPercentages = {
-    html: 95,
-    css: 80,
-    javaScript: 70,
-    angularJs: 60,
-    reactJs: 55,
-    java: 90,
-    dotNet: 85,
-    cpp: 70,
-} //%
-var positions = {
+const chartFinishPercentages = {
+        html: 95,
+        css: 80,
+        javaScript: 70,
+        angularJs: 60,
+        reactJs: 55,
+        java: 90,
+        dotNet: 65,
+        cpp: 70,
+    } //%
+const positions = {
     htmlPosition: start,
     cssPosition: start,
     javaScriptPosition: start,
@@ -28,16 +28,18 @@ var positions = {
 var time = 0;
 var handler;
 //////circle charts////////
-var RADIUS = 54;
-var CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+const RADIUS = 54;
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 ///////////////////////////////////
 var hasPlayedOnce = false;
 //////////////form values///////////
 var name;
 var email;
 var message;
+//firebase database ref
+var fbdb;
 // start 
-window.onload = function () {
+window.onload = function() {
     this.navClick('n1', 'p1');
     this.windowResized(window.innerWidth); // set state on reload
     //form data listeners
@@ -47,23 +49,22 @@ window.onload = function () {
     inputName.addEventListener('input', test);
     inputEmail.addEventListener('input', test);
     inputMessage.addEventListener('input', test);
+
+    fbdb = firebase.database();
 };
 
 test = (e) => {
-    if (e.target.id === 'inputName') {
-        this.name = e.target.value;
-        console.log(this.name);
-    } else if (e.target.id === 'inputEmail') {
-        this.email = e.target.value;
-        console.log(this.email);
-    } else if (e.target.id === 'inputMessage') {
-        this.message = e.target.value;
-        console.log(this.message);
+        if (e.target.id === 'inputName') {
+            this.name = e.target.value;
+        } else if (e.target.id === 'inputEmail') {
+            this.email = e.target.value;
+        } else if (e.target.id === 'inputMessage') {
+            this.message = e.target.value;
+        }
     }
-}
-// nav links manipulations, do some things when navs are clicked
-// nav ids: n1=home, n2=about, n3=projects, n3=contact
-// corresponding page ids: p1, p2, p3, p4, for scrolling to.
+    // nav links manipulations, do some things when navs are clicked
+    // nav ids: n1=home, n2=about, n3=projects, n3=contact
+    // corresponding page ids: p1, p2, p3, p4, for scrolling to.
 navClick = (navId, pageId) => {
     // scroll
     this.smoothScroll(pageId);
@@ -75,8 +76,8 @@ navClick = (navId, pageId) => {
     }
     //highlight selected nav
     for (let i = 1; i < 5; i++) {
-        let tempNavId = "n" + i;
-        let elem = document.getElementById(tempNavId);
+        const tempNavId = "n" + i;
+        const elem = document.getElementById(tempNavId);
         if (tempNavId === navId) {
             elem.style.backgroundColor = "white";
             elem.style.color = "black";
@@ -92,8 +93,8 @@ navClick = (navId, pageId) => {
 //update active nav indication, depending on if the page is scrolled to
 updateNavLinkBg = (navId) => {
     for (let i = 1; i < 5; i++) {
-        let tempNavId = "n" + i;
-        let elem = document.getElementById(tempNavId);
+        const tempNavId = "n" + i;
+        const elem = document.getElementById(tempNavId);
         if (tempNavId === navId) {
             elem.style.backgroundColor = "white";
             elem.style.color = "black";
@@ -108,12 +109,12 @@ updateNavLinkBg = (navId) => {
 
 // check if page is visible onScrolling body
 windowScrolling = () => {
-    let homeDistanceY = document.getElementById('p1').getBoundingClientRect().top;
-    let aboutDistanceY = document.getElementById('p2').getBoundingClientRect().top;
-    let projectsDistanceY = document.getElementById('p3').getBoundingClientRect().top;
-    let contactDistanceY = document.getElementById('p4').getBoundingClientRect().top;
+    const homeDistanceY = document.getElementById('p1').getBoundingClientRect().top;
+    const aboutDistanceY = document.getElementById('p2').getBoundingClientRect().top;
+    const projectsDistanceY = document.getElementById('p3').getBoundingClientRect().top;
+    const contactDistanceY = document.getElementById('p4').getBoundingClientRect().top;
 
-    let stickyCvDownloadButton = document.getElementById('stick-cv-btn-div');
+    const stickyCvDownloadButton = document.getElementById('stick-cv-btn-div');
     stickyCvDownloadButton.style.transition = "2s"
 
     if (Math.abs(homeDistanceY) <= 602) {
@@ -136,8 +137,8 @@ windowScrolling = () => {
     }
 
     //play charts if in viewport
-    let cppChartDistanceToTop = document.getElementById('progress__valuecpp').getBoundingClientRect().top;
-    let screenHeight = window.innerHeight;
+    const cppChartDistanceToTop = document.getElementById('progress__valuecpp').getBoundingClientRect().top;
+    const screenHeight = window.innerHeight;
 
     if (Math.floor(cppChartDistanceToTop) < screenHeight - 200) { // 200 is offset, so all charts are visible.
         if (this.hasPlayedOnce === false) {
@@ -161,7 +162,7 @@ currentYPos = () => {
 
 // determina position of the destination element
 elementYpos = (eID) => {
-    let elm = document.getElementById(eID);
+    const elm = document.getElementById(eID);
     let y = elm.offsetTop;
     let node = elm;
     while (node.offsetParent && node.offsetParent != document.body) {
@@ -173,41 +174,41 @@ elementYpos = (eID) => {
 
 // do the scrolling
 smoothScroll = (eID) => {
-    let startY = currentYPos();
-    let stopY = elementYpos(eID);
-    let distance = stopY > startY ? stopY - startY : startY - stopY;
-    if (distance < 100) {
-        scrollTo(0, stopY);
-        return;
-    }
-    let speed = Math.round(distance / 100);
-    if (speed >= 20) speed = 20;
-    let step = Math.round(distance / 25);
-    let leapY = stopY > startY ? startY + step : startY - step;
-    let timer = 0;
-    if (stopY > startY) {
-        for (let i = startY; i < stopY; i += step) {
+        const startY = currentYPos();
+        const stopY = elementYpos(eID);
+        const distance = stopY > startY ? stopY - startY : startY - stopY;
+        if (distance < 100) {
+            scrollTo(0, stopY);
+            return;
+        }
+        let speed = Math.round(distance / 100);
+        if (speed >= 20) speed = 20;
+        const step = Math.round(distance / 25);
+        let leapY = stopY > startY ? startY + step : startY - step;
+        let timer = 0;
+        if (stopY > startY) {
+            for (let i = startY; i < stopY; i += step) {
+                setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
+                leapY += step;
+                if (leapY > stopY) leapY = stopY;
+                timer++;
+            }
+            return;
+        }
+        for (let i = startY; i > stopY; i -= step) {
             setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
-            leapY += step;
-            if (leapY > stopY) leapY = stopY;
+            leapY -= step;
+            if (leapY < stopY) leapY = stopY;
             timer++;
         }
-        return;
+        return false;
     }
-    for (let i = startY; i > stopY; i -= step) {
-        setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
-        leapY -= step;
-        if (leapY < stopY) leapY = stopY;
-        timer++;
-    }
-    return false;
-}
-//end smooth scroll//////////////////
+    //end smooth scroll//////////////////
 
 // show hidden menu
 showHideMenu = () => {
-    let menuDiv = document.getElementById('nav-main-container');
-    let burgerTrigger = document.getElementById('burger-menu-button-div');
+    const menuDiv = document.getElementById('nav-main-container');
+    const burgerTrigger = document.getElementById('burger-menu-button-div');
     if (menuDiv.style.marginLeft === "-260px") {
         menuDiv.style.marginLeft = "0px";
         menuDiv.style.transition = "0.4s";
@@ -233,7 +234,7 @@ hideMenuIfClickOnBody = () => {
 
 //darken view on menu drawer showing
 darkenOnDrawerShouldSHow = (shouldDarken) => {
-    let overlay = document.getElementById('overlay-div');
+    const overlay = document.getElementById('overlay-div');
     if (shouldDarken) {
         overlay.style.display = "block";
     } else {
@@ -244,30 +245,30 @@ darkenOnDrawerShouldSHow = (shouldDarken) => {
 
 // detect resolution change
 windowResized = (screenWidth) => {
-    this.screenWidth = screenWidth;
-    let menuDiv = document.getElementById('nav-main-container');
-    let burgerTrigger = document.getElementById('burger-menu-button-div');
-    // let mainMiddleContainer = document.getElementsByClassName('body');
-    if (screenWidth <= 730) {
-        menuDiv.style.marginLeft = "-260px";
-        menuDiv.style.transition = "0.4s";
-        burgerTrigger.style.display = "block";
-        this.menuIsShowing = false;
-        this.darkenOnDrawerShouldSHow();
-    } else if (screenWidth >= 730) {
-        menuDiv.style.marginLeft = "0px";
-        menuDiv.style.transition = "0.4s";
-        burgerTrigger.style.display = "none";
-        this.menuIsShowing = true;
+        this.screenWidth = screenWidth;
+        const menuDiv = document.getElementById('nav-main-container');
+        const burgerTrigger = document.getElementById('burger-menu-button-div');
+        // let mainMiddleContainer = document.getElementsByClassName('body');
+        if (screenWidth <= 730) {
+            menuDiv.style.marginLeft = "-260px";
+            menuDiv.style.transition = "0.4s";
+            burgerTrigger.style.display = "block";
+            this.menuIsShowing = false;
+            this.darkenOnDrawerShouldSHow();
+        } else if (screenWidth >= 730) {
+            menuDiv.style.marginLeft = "0px";
+            menuDiv.style.transition = "0.4s";
+            burgerTrigger.style.display = "none";
+            this.menuIsShowing = true;
+        }
     }
-}
-///////////////////////////percentage animation///////////////////////////
-// x: percent
-// t: current time,
-// b: beginning value,
-// c: change in value,
-// d: duration
-// standard easout function: formula credit goes to http://easings.net/
+    ///////////////////////////percentage animation///////////////////////////
+    // x: percent
+    // t: current time,
+    // b: beginning value,
+    // c: change in value,
+    // d: duration
+    // standard easout function: formula credit goes to http://easings.net/
 easeInOutQuad = (t, b, c, d) => {
     if ((t /= d / 2) < 1) {
         return c / 2 * t * t + b;
@@ -283,7 +284,7 @@ playChartsAnimations = () => {
         this.hasPlayedOnce = true;
         //initiate and play charts animations
         this.handler = setInterval(runChartsAnimations, 1000 / fps);
-        let percentageCircle = document.getElementsByClassName('progress__value');
+        const percentageCircle = document.getElementsByClassName('progress__value');
         // unpause all animation for all clas of "progress__value"
         for (let i = 0; i < percentageCircle.length; i++) {
             percentageCircle[i].style.WebkitAnimationPlayState = "running";
@@ -294,7 +295,7 @@ playChartsAnimations = () => {
 
 //feed charts with their appropriate data
 function runChartsAnimations() {
-    time += 1 / fps;
+    this.time += 1 / fps;
 
     positions.htmlPosition = this.easeInOutQuad(time, start, chartFinishPercentages.html, duration);
     document.getElementById("skillLevel-p-html").innerHTML = Math.floor(positions.htmlPosition) + "%";
@@ -328,6 +329,10 @@ function runChartsAnimations() {
 
 // handle form submit
 handleFormSubmit = () => {
-    alert('Message sent!');
-    console.log('//////:', this.name, '//\n', this.email, '//\n', this.message);
+    this.fbdb.ref('/messages/' + new Date).set({
+        Aname: this.name,
+        Bemail: this.email,
+        Cmessage: this.message
+    });
+    alert('Message Sent!');
 }
