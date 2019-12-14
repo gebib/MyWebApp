@@ -104,10 +104,16 @@
   border: none;
   background: none;
 }
-.btn:hover {
+.atag{
+  /* border: 1px solid black; */
+  padding: 10px 25px 10px 25px;
+  border-radius: 3px;
+}
+.atag:hover {
   background-color: #ececec;
   cursor: pointer;
 }
-.btn:active {
+.atag:active {
   background-color: rgb(211, 209, 209);
 }
+
