@@ -10,7 +10,7 @@ const chartFinishPercentages = {
         css: 80,
         javaScript: 70,
         angularJs: 60,
-        reactJs: 55,
+        reactJs: 70,
         java: 90,
         dotNet: 65,
         cpp: 70,
@@ -117,7 +117,7 @@ windowScrolling = () => {
     const stickyCvDownloadButton = document.getElementById('stick-cv-btn-div');
     stickyCvDownloadButton.style.transition = "2s"
 
-    if (Math.abs(homeDistanceY) <= 602) {
+    if (Math.abs(homeDistanceY) < 603) {
         stickyCvDownloadButton.style.display = "none";
     } else if (Math.abs(homeDistanceY) > 602) {
         stickyCvDownloadButton.style.display = "block";
@@ -334,5 +334,5 @@ handleFormSubmit = () => {
         Bemail: this.email,
         Cmessage: this.message
     });
-    alert('Message Sent!');
+    alert('Message Sent!, I will respond to your message as soon as i get to see it. Thank you for contacting me!');
 }

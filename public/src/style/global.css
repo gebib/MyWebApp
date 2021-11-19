@@ -29,8 +29,7 @@ h1 {
 /* sticky cv download btn */
 #stick-cv-btn-div {
   position: fixed;
-  left: 50%;
-  transform: translateX(-180px);
+  top: 0;
   z-index: 10;
   background-color: rgba(24, 24, 24, 0.8);
   padding: 15px 0px 15px 0px;
@@ -41,8 +40,8 @@ h1 {
   text-align: center;
   width: 360px;
   border-radius: 0px 0px 50px 50px;
-  transition: 2s;
-  display: none;
+  transition: 5s;
+  display: block;
 }
 
 #downloadButton-sticky {
