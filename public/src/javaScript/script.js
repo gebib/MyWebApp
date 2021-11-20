@@ -40,6 +40,9 @@ var message;
 var fbdb;
 // start 
 window.onload = function() {
+    this.name = "";
+    this.email = "";
+    this.message = "";
     this.navClick('n1', 'p1');
     this.windowResized(window.innerWidth); // set state on reload
     //form data listeners
@@ -119,7 +122,7 @@ windowScrolling = () => {
 
     if (Math.abs(homeDistanceY) < 603) {
         stickyCvDownloadButton.style.display = "none";
-    } else if (Math.abs(homeDistanceY) > 602) {
+    } else if (Math.abs(homeDistanceY) > 622) {
         stickyCvDownloadButton.style.display = "block";
     }
 
@@ -328,11 +331,31 @@ function runChartsAnimations() {
 }
 
 // handle form submit
-handleFormSubmit = () => {
-    this.fbdb.ref('/messages/' + new Date).set({
-        Aname: this.name,
-        Bemail: this.email,
-        Cmessage: this.message
-    });
-    alert('Message Sent!, I will respond to your message as soon as i get to see it. Thank you for contacting me!');
+handleFormSubmit = (e) => {
+    var response = grecaptcha.getResponse();
+
+
+
+
+    if (response.length == 0) {
+        alert("Please check reCaptcha check box!");
+        e.preventDefault();
+    } else if (this.name.length < 2) {
+        alert("Name is missing, please fill out your name!");
+        e.preventDefault();
+    } else if (!(/(.+)@(.+){2,}\.(.+){2,}/.test(this.email))) {
+        alert("Please fill out a valid e-mail!");
+        e.preventDefault();
+    } else if (this.message.length < 1) {
+        alert("Please add some message!");
+        e.preventDefault();
+    } else {
+        //all ok
+        this.fbdb.ref('/messages/' + new Date).set({
+            Aname: this.name,
+            Bemail: this.email,
+            Cmessage: this.message
+        });
+        alert('Message Sent!, I will respond to your message as soon as i get to see it. Thank you for contacting me!');
+    }
 }
