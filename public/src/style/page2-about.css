@@ -135,10 +135,10 @@
  
  @keyframes htmlChart {
      from {
-         stroke-dashoffset: 335;
+         stroke-dashoffset: 333;
      }
      to {
-         stroke-dashoffset: 16.75;
+         stroke-dashoffset: 33.3;
      }
  }
  /* CSS /////////////////*/
@@ -150,10 +150,10 @@
  
  @keyframes cssChart {
      from {
-         stroke-dashoffset: 335;
+         stroke-dashoffset: 333;
      }
      to {
-         stroke-dashoffset: 67;
+         stroke-dashoffset: 83.25;
      }
  }
  /* javaScript /////////////////*/
@@ -165,10 +165,10 @@
  
  @keyframes javaScriptChart {
      from {
-         stroke-dashoffset: 335;
+         stroke-dashoffset: 333;
      }
      to {
-         stroke-dashoffset: 100.5;
+         stroke-dashoffset: 133.2;
      }
  }
  /* angularJs/////////////////*/
@@ -180,25 +180,25 @@
  
  @keyframes angularJsChart {
      from {
-         stroke-dashoffset: 335;
+         stroke-dashoffset: 333;
      }
      to {
-         stroke-dashoffset: 100.5;
+         stroke-dashoffset: 133.2;
      }
  }
  /* reactJs/////////////////*/
  
  #progress__valuereactJs {
      stroke: #61dafb;
-     animation-name: angularJsChart;
+     animation-name: reactJsChart;
  }
  
  @keyframes reactJsChart {
      from {
-         stroke-dashoffset: 335;
+         stroke-dashoffset: 333;
      }
      to {
-         stroke-dashoffset: 150.75;
+         stroke-dashoffset: 99.9;
      }
  }
  /* java/////////////////*/
@@ -210,10 +210,10 @@
  
  @keyframes javaChart {
      from {
-         stroke-dashoffset: 335;
+         stroke-dashoffset: 333;
      }
      to {
-         stroke-dashoffset: 33.5;
+         stroke-dashoffset: 99.9;
      }
  }
  /* dotNet/////////////////*/
@@ -225,24 +225,24 @@
  
  @keyframes dotNetChart {
      from {
-         stroke-dashoffset: 335;
+         stroke-dashoffset: 333;
      }
      to {
-         stroke-dashoffset: 117.25;
+         stroke-dashoffset: 116.55;
      }
  }
  /* cpp/////////////////*/
  
  #progress__valuecpp {
-     stroke: #000000;
+     stroke: #00427E;
      animation-name: cppChart;
  }
  
  @keyframes cppChart {
      from {
-         stroke-dashoffset: 335;
+         stroke-dashoffset: 333;
      }
      to {
-         stroke-dashoffset: 100.5;
+         stroke-dashoffset: 149.85;
      }
  }

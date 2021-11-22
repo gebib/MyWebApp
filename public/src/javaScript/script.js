@@ -6,14 +6,14 @@ const duration = 5; //s
 const start = 0; //%
 
 const chartFinishPercentages = {
-        html: 95,
-        css: 80,
-        javaScript: 70,
+        html: 90,
+        css: 75,
+        javaScript: 60,
         angularJs: 60,
         reactJs: 70,
-        java: 90,
+        java: 70,
         dotNet: 65,
-        cpp: 70,
+        cpp: 55,
     } //%
 const positions = {
     htmlPosition: start,
