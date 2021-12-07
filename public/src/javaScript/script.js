@@ -6,15 +6,15 @@ const duration = 5; //s
 const start = 0; //%
 
 const chartFinishPercentages = {
-        html: 90,
-        css: 75,
-        javaScript: 60,
-        angularJs: 60,
-        reactJs: 70,
-        java: 70,
-        dotNet: 65,
-        cpp: 55,
-    } //%
+    html: 90,
+    css: 75,
+    javaScript: 60,
+    angularJs: 60,
+    reactJs: 70,
+    java: 70,
+    dotNet: 65,
+    cpp: 55,
+} //%
 const positions = {
     htmlPosition: start,
     cssPosition: start,
@@ -39,7 +39,7 @@ var message;
 //firebase database ref
 var fbdb;
 // start 
-window.onload = function() {
+window.onload = function () {
     this.name = "";
     this.email = "";
     this.message = "";
@@ -57,17 +57,17 @@ window.onload = function() {
 };
 
 test = (e) => {
-        if (e.target.id === 'inputName') {
-            this.name = e.target.value;
-        } else if (e.target.id === 'inputEmail') {
-            this.email = e.target.value;
-        } else if (e.target.id === 'inputMessage') {
-            this.message = e.target.value;
-        }
+    if (e.target.id === 'inputName') {
+        this.name = e.target.value;
+    } else if (e.target.id === 'inputEmail') {
+        this.email = e.target.value;
+    } else if (e.target.id === 'inputMessage') {
+        this.message = e.target.value;
     }
-    // nav links manipulations, do some things when navs are clicked
-    // nav ids: n1=home, n2=about, n3=projects, n3=contact
-    // corresponding page ids: p1, p2, p3, p4, for scrolling to.
+}
+// nav links manipulations, do some things when navs are clicked
+// nav ids: n1=home, n2=about, n3=projects, n3=contact
+// corresponding page ids: p1, p2, p3, p4, for scrolling to.
 navClick = (navId, pageId) => {
     // scroll
     this.smoothScroll(pageId);
@@ -177,36 +177,36 @@ elementYpos = (eID) => {
 
 // do the scrolling
 smoothScroll = (eID) => {
-        const startY = currentYPos();
-        const stopY = elementYpos(eID);
-        const distance = stopY > startY ? stopY - startY : startY - stopY;
-        if (distance < 100) {
-            scrollTo(0, stopY);
-            return;
-        }
-        let speed = Math.round(distance / 100);
-        if (speed >= 20) speed = 20;
-        const step = Math.round(distance / 25);
-        let leapY = stopY > startY ? startY + step : startY - step;
-        let timer = 0;
-        if (stopY > startY) {
-            for (let i = startY; i < stopY; i += step) {
-                setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
-                leapY += step;
-                if (leapY > stopY) leapY = stopY;
-                timer++;
-            }
-            return;
-        }
-        for (let i = startY; i > stopY; i -= step) {
+    const startY = currentYPos();
+    const stopY = elementYpos(eID);
+    const distance = stopY > startY ? stopY - startY : startY - stopY;
+    if (distance < 100) {
+        scrollTo(0, stopY);
+        return;
+    }
+    let speed = Math.round(distance / 100);
+    if (speed >= 20) speed = 20;
+    const step = Math.round(distance / 25);
+    let leapY = stopY > startY ? startY + step : startY - step;
+    let timer = 0;
+    if (stopY > startY) {
+        for (let i = startY; i < stopY; i += step) {
             setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
-            leapY -= step;
-            if (leapY < stopY) leapY = stopY;
+            leapY += step;
+            if (leapY > stopY) leapY = stopY;
             timer++;
         }
-        return false;
+        return;
     }
-    //end smooth scroll//////////////////
+    for (let i = startY; i > stopY; i -= step) {
+        setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
+        leapY -= step;
+        if (leapY < stopY) leapY = stopY;
+        timer++;
+    }
+    return false;
+}
+//end smooth scroll//////////////////
 
 // show hidden menu
 showHideMenu = () => {
@@ -248,30 +248,30 @@ darkenOnDrawerShouldSHow = (shouldDarken) => {
 
 // detect resolution change
 windowResized = (screenWidth) => {
-        this.screenWidth = screenWidth;
-        const menuDiv = document.getElementById('nav-main-container');
-        const burgerTrigger = document.getElementById('burger-menu-button-div');
-        // let mainMiddleContainer = document.getElementsByClassName('body');
-        if (screenWidth <= 730) {
-            menuDiv.style.marginLeft = "-260px";
-            menuDiv.style.transition = "0.4s";
-            burgerTrigger.style.display = "block";
-            this.menuIsShowing = false;
-            this.darkenOnDrawerShouldSHow();
-        } else if (screenWidth >= 730) {
-            menuDiv.style.marginLeft = "0px";
-            menuDiv.style.transition = "0.4s";
-            burgerTrigger.style.display = "none";
-            this.menuIsShowing = true;
-        }
+    this.screenWidth = screenWidth;
+    const menuDiv = document.getElementById('nav-main-container');
+    const burgerTrigger = document.getElementById('burger-menu-button-div');
+    // let mainMiddleContainer = document.getElementsByClassName('body');
+    if (screenWidth <= 730) {
+        menuDiv.style.marginLeft = "-260px";
+        menuDiv.style.transition = "0.4s";
+        burgerTrigger.style.display = "block";
+        this.menuIsShowing = false;
+        this.darkenOnDrawerShouldSHow();
+    } else if (screenWidth >= 730) {
+        menuDiv.style.marginLeft = "0px";
+        menuDiv.style.transition = "0.4s";
+        burgerTrigger.style.display = "none";
+        this.menuIsShowing = true;
     }
-    ///////////////////////////percentage animation///////////////////////////
-    // x: percent
-    // t: current time,
-    // b: beginning value,
-    // c: change in value,
-    // d: duration
-    // standard easout function: formula credit goes to http://easings.net/
+}
+///////////////////////////percentage animation///////////////////////////
+// x: percent
+// t: current time,
+// b: beginning value,
+// c: change in value,
+// d: duration
+// standard easout function: formula credit goes to http://easings.net/
 easeInOutQuad = (t, b, c, d) => {
     if ((t /= d / 2) < 1) {
         return c / 2 * t * t + b;
@@ -359,3 +359,10 @@ handleFormSubmit = (e) => {
         alert('Message Sent!, I will respond to your message as soon as i get to see it. Thank you for contacting me!');
     }
 }
+
+////run after everything has been loaded!......prvent from auto scroll up the page!.
+// window.onload = function () {
+//     var lastCircleOnTimeLine = document.getElementById('lastKeb');
+//     lastCircleOnTimeLine.style.color = "blue";
+// };
+
